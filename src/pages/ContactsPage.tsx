@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { AGENCY_CONFIG } from '../config/agencyConfig';
+import { SeoBlock } from '../components/SeoBlock';
 import { Phone, Mail, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 
 export const ContactsPage: React.FC = () => {
@@ -45,7 +46,7 @@ export const ContactsPage: React.FC = () => {
   return (
     <div>
       {/* HERO */}
-      <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderBottom: '1px solid var(--border-color)' }}>
+      <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderBottom: '1px solid var(--border-color)', paddingTop: '3.5rem', paddingBottom: '4rem' }}>
         <div className="container">
           <div style={{ maxWidth: '840px' }}>
             <span className="tag tag-accent" style={{ marginBottom: '1.2rem' }}>
@@ -55,7 +56,7 @@ export const ContactsPage: React.FC = () => {
             <h1 style={{ marginBottom: '1.5rem' }}>
               {t('Давайте обговоримо ваше бізнес-завдання', 'Let’s Discuss Your Business Objective')}
             </h1>
-            <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: '1.65' }}>
+            <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: '1.65' }}>
               {t(
                 'Напишіть нам у месенджер або заповніть форму зворотного зв’язку. Ми дамо відповідь протягом кількох годин.',
                 'Message us via Telegram or submit the quick contact form. We reply within a couple of hours.'
@@ -71,7 +72,7 @@ export const ContactsPage: React.FC = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem' }}>
             {/* Direct Contacts Column */}
             <div>
-              <h2 style={{ fontSize: '1.8rem', marginBottom: '1.8rem' }}>
+              <h2 style={{ fontSize: '1.75rem', marginBottom: '1.8rem' }}>
                 {t('Прямий зв’язок', 'Direct Channels')}
               </h2>
 
@@ -124,15 +125,15 @@ export const ContactsPage: React.FC = () => {
             </div>
 
             {/* Form Column */}
-            <div className="card" style={{ padding: '2.5rem' }}>
-              <h3 style={{ fontSize: '1.6rem', marginBottom: '1.5rem' }}>
+            <div className="card" style={{ padding: '2.2rem' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>
                 {t('Надіслати повідомлення', 'Send Message')}
               </h3>
 
               {status === 'success' ? (
                 <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
                   <CheckCircle2 size={56} color="var(--accent)" style={{ margin: '0 auto 1.2rem' }} />
-                  <h4 style={{ fontSize: '1.5rem', marginBottom: '0.8rem' }}>
+                  <h4 style={{ fontSize: '1.4rem', marginBottom: '0.8rem' }}>
                     {t('Заявку успішно створено!', 'Request Created!')}
                   </h4>
                   <p style={{ color: 'var(--text-secondary)' }}>
@@ -231,6 +232,22 @@ export const ContactsPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* SEO BLOCK RIGHT BEFORE FOOTER */}
+      <SeoBlock
+        titleUa="Контакти маркетингової агенції Pozdni Team — Замовити послуги маркетингу, дизайну та SMM"
+        titleEn="Pozdni Team Agency Contacts — Order Marketing, Design & SMM Services"
+        paragraphsUa={[
+          "Бажаєте обговорити новий проєкт чи отримати консультацію з розвитку вашого бренду? Зв'яжіться з командою Pozdni Team Agency зручним способом: по телефону, електронною поштою або через Telegram.",
+          "Ми працюємо з компаніями по всій Україні та за кордоном, надаючи повний комплекс послуг зі стратегічного маркетингу, графічного дизайну та SMM.",
+          "Заповнюйте форму зворотного зв'язку або звертайтеся безпосередньо — ми запропонуємо оптимальний формат співпраці для досягнення цілей вашого бізнесу."
+        ]}
+        paragraphsEn={[
+          "Ready to discuss your next project or receive strategic brand expansion advice? Connect with Pozdni Team Agency via phone, email, or direct Telegram messenger.",
+          "We partner with businesses across Ukraine and internationally, executing end-to-end campaigns across marketing strategy, graphic design, and social media operations.",
+          "Fill out the inquiry form or reach out directly — we will formulate an optimal cooperation package tailored to your commercial milestones."
+        ]}
+      />
     </div>
   );
 };

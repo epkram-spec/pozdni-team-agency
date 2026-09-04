@@ -5,7 +5,7 @@ import { DESIGN_SERVICES_CATALOG } from '../config/servicesCatalog';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { SeoBlock } from '../components/SeoBlock';
 import { AGENCY_CONFIG } from '../config/agencyConfig';
-import { Palette, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Palette, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 
 interface DesignPageProps {
   onOpenContact: (serviceName?: string) => void;
@@ -15,49 +15,82 @@ export const DesignPage: React.FC<DesignPageProps> = ({ onOpenContact }) => {
   const { t } = useLanguage();
 
   const scenarios = [
-    t('Створюєте новий продукт чи відкриваєте новий бренд', 'Launching a new product or founding a brand'),
-    t('Поточна візуальна стиль застаріла і не передає цінності', 'Current visual identity is outdated and hides brand value'),
-    t('Потрібна якісна продаюча упаковка для виходу на полиці', 'Need high-converting packaging design for retail shelves'),
-    t('Потрібна єдина система шаблонів для соцмереж та реклами', 'Need a unified graphic system for social media & ads')
+    t('Створення нового бренду та візуальної ідентичності з нуля', 'Creating new brand identity & visuals from scratch'),
+    t('Застарілий логотип чи стилістика, що не відповідає статусу', 'Outdated logo or visuals underperforming market standard'),
+    t('Потрібна упаковка продукції, етикетки чи стаканчики для HoReCa', 'Product packaging, labels, or cups for HoReCa/retail'),
+    t('Потрібні рекламні баннери, шаблони та оформлення для соцмереж', 'Ad banners, templates, and social media brand assets')
   ];
 
   return (
     <div>
-      {/* HERO */}
-      <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderBottom: '1px solid var(--border-color)' }}>
+      {/* HERO BANNER WITH BRANDING PHOTOGRAPHY */}
+      <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderBottom: '1px solid var(--border-color)', paddingTop: '3.5rem', paddingBottom: '4rem' }}>
         <div className="container">
-          <div style={{ maxWidth: '840px' }}>
-            <span className="tag tag-accent" style={{ marginBottom: '1.2rem' }}>
-              <Palette size={14} style={{ marginRight: '0.4rem' }} />
-              {t('Напрям: Графічний Дизайн', 'Direction: Graphic Design')}
-            </span>
-            <h1 style={{ marginBottom: '1.5rem' }}>
-              {t(
-                'Як створити айдентику та дизайн, який вирізняє бренд і формує довіру?',
-                'How to craft a brand identity & design that cuts through the noise and builds instant trust?'
-              )}
-            </h1>
-            <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: '1.65' }}>
-              {t(
-                'Створюємо виразну візуальну ідентичність: від логотипа, брендбуку та упаковки до рекламних баннерів і поліграфії.',
-                'We build expressive visual identities: from logos, brand books, and packaging to social templates and ad creatives.'
-              )}
-            </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+            <div>
+              <span className="tag tag-accent" style={{ marginBottom: '1.2rem' }}>
+                <Palette size={14} style={{ marginRight: '0.4rem' }} />
+                {t('Напрям: Графічний Дизайн & Айдентика', 'Direction: Graphic Design & Identity')}
+              </span>
+              <h1 style={{ marginBottom: '1.4rem' }}>
+                {t(
+                  'Як створити айдентику та дизайн, що закохують і виділяють бізнес?',
+                  'How to craft brand identity & design that captivates and sets your business apart?'
+                )}
+              </h1>
+              <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '2rem' }}>
+                {t(
+                  'Ми створюємо логотипи, повноцінні брендбуки, упаковку товарів, поліграфію та рекламні візуали, які будують сильну емоційну прив’язку клієнта до бренду.',
+                  'We craft logos, comprehensive brand books, product packaging, print collateral, and advertising visuals that forge deep customer connections.'
+                )}
+              </p>
+              <button onClick={() => onOpenContact('Графічний дизайн & Айдентика')} className="btn btn-accent">
+                <span>{t('Замовити розробку дизайну', 'Order Design Development')}</span>
+                <ArrowRight size={16} />
+              </button>
+            </div>
+
+            {/* Banner Photo */}
+            <div 
+              style={{
+                borderRadius: 'var(--radius-lg)',
+                overflow: 'hidden',
+                height: '360px',
+                position: 'relative',
+                boxShadow: 'var(--shadow-lg)'
+              }}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1000&auto=format&fit=crop" 
+                alt="Brand Identity & Design Packaging"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(20,20,22,0.8) 0%, transparent 60%)' }} />
+              <div style={{ position: 'absolute', bottom: '1.5rem', left: '1.5rem', right: '1.5rem', color: '#FFFFFF' }}>
+                <span className="tag" style={{ backgroundColor: 'var(--accent)', color: '#FFFFFF', marginBottom: '0.4rem' }}>
+                  <Sparkles size={13} style={{ marginRight: '0.3rem' }} />
+                  {t('ПРЕМІАЛЬНА АЙДЕНТИКА', 'PREMIUM IDENTITY')}
+                </span>
+                <h3 style={{ color: '#FFFFFF', fontSize: '1.3rem' }}>
+                  {t('Логотипи, Брендбуки & Упаковка', 'Logos, Brandbooks & Packaging')}
+                </h3>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* WHEN NEEDED */}
+      {/* WHEN NEEDED - MOBILE CAROUSEL */}
       <section className="section">
         <div className="container">
           <div style={{ marginBottom: '2.5rem' }}>
-            <h2>{t('Коли потрібні послуги графічного дизайну?', 'When Do You Need Graphic Design Services?')}</h2>
+            <h2>{t('Коли потрібні послуги графічного дизайнера?', 'When Do You Need Graphic Design Services?')}</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
+          <div className="mobile-carousel">
             {scenarios.map((sc, i) => (
               <div key={i} className="card" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                 <CheckCircle2 size={20} color="var(--accent)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
-                <span style={{ fontSize: '1rem', fontWeight: 600 }}>{sc}</span>
+                <span style={{ fontSize: '0.96rem', fontWeight: 600, color: 'var(--text-primary)' }}>{sc}</span>
               </div>
             ))}
           </div>
@@ -68,8 +101,8 @@ export const DesignPage: React.FC<DesignPageProps> = ({ onOpenContact }) => {
       <section className="section" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="container">
           <div style={{ marginBottom: '3rem' }}>
-            <h2>{t('Каталог послуг з дизайну', 'Graphic Design Service Catalog')}</h2>
-            <p>{t('Повний спектр візуальних рішень для вашого бізнесу.', 'Complete spectrum of visual design solutions for your brand.')}</p>
+            <h2>{t('Каталог дизайн-послуг', 'Graphic Design Catalog')}</h2>
+            <p>{t('Професійний дизайн для всіх точок контакту клієнта з вашим брендом.', 'Professional design for all customer touchpoints with your brand.')}</p>
           </div>
           <ServiceCategorySection categories={DESIGN_SERVICES_CATALOG} onOpenContact={onOpenContact} />
         </div>
@@ -78,66 +111,54 @@ export const DesignPage: React.FC<DesignPageProps> = ({ onOpenContact }) => {
       {/* PROCESS */}
       <section className="section">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3.5rem auto' }}>
-            <h2>{t('Процес створення дизайну', 'Design Creation Workflow')}</h2>
+          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem auto' }}>
+            <h2>{t('Процес розробки дизайну', 'Design Workflow Process')}</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
+          <div className="mobile-carousel">
             {[
-              { step: '01', titleUa: 'Бриф & Мудборди', titleEn: 'Brief & Moodboards', descUa: 'Збір вимог, дослідження стилю та візуальні референси.', descEn: 'Requirement gathering, moodboards, and style references.' },
-              { step: '02', titleUa: 'Розробка концепцій', titleEn: 'Concept Design', descUa: 'Створення кількох принципово різних варіантів дизайну.', descEn: 'Creating distinct visual concepts for review.' },
-              { step: '03', titleUa: 'Фіналізація & Гайд', titleEn: 'Finalization & Guide', descUa: 'Допрацювання обраного варіанту та верстка брендбуку.', descEn: 'Refining chosen concept and compiling brand guidelines.' },
-              { step: '04', titleUa: 'Передача файлів', titleEn: 'Asset Handoff', descUa: 'Підготовка макетів до друку та векторних файлів для вебу.', descEn: 'Preparing print-ready layouts and vector web assets.' }
+              { step: '01', titleUa: 'Мудборд & Концепт', titleEn: 'Moodboard & Concept', descUa: 'Визначення естетичного вектору та стилістики.', descEn: 'Defining visual aesthetic and direction.' },
+              { step: '02', titleUa: 'Розробка варіантів', titleEn: 'Option Crafting', descUa: 'Створення унікальних графічних концепцій.', descEn: 'Designing distinct graphic concepts.' },
+              { step: '03', titleUa: 'Фіналізація & Гайдбук', titleEn: 'Finalization & Guide', descUa: 'Допрацювання обраного варіанту та адаптація.', descEn: 'Polishing selected concept and guidelines.' },
+              { step: '04', titleUa: 'Передача файлів', titleEn: 'File Handoff', descUa: 'Підготовка макетів до друку та векторних вихідників.', descEn: 'Preparing print-ready assets and vector sources.' }
             ].map((p, i) => (
               <div key={i} className="card">
-                <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent)', display: 'block', marginBottom: '0.6rem' }}>
+                <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent)', display: 'block', marginBottom: '0.5rem' }}>
                   {p.step}
                 </span>
-                <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', fontFamily: 'var(--font-body)' }}>{t(p.titleUa, p.titleEn)}</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{t(p.descUa, p.descEn)}</p>
+                <h4 style={{ fontSize: '1.15rem', marginBottom: '0.5rem', fontFamily: 'var(--font-body)' }}>{t(p.titleUa, p.titleEn)}</h4>
+                <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>{t(p.descUa, p.descEn)}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ SECTION */}
       <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderTop: '1px solid var(--border-color)' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <h2>{t('Запитання щодо дизайну', 'Design Questions')}</h2>
+          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem auto' }}>
+            <span className="tag tag-accent" style={{ marginBottom: '0.8rem' }}>FAQ</span>
+            <h2>{t('Часті запитання про дизайн', 'Design FAQ')}</h2>
           </div>
           <FAQAccordion items={AGENCY_CONFIG.faq.slice(0, 4)} />
         </div>
       </section>
 
-      {/* SEO BLOCK */}
+      {/* SEO BLOCK RIGHT BEFORE FOOTER */}
       <SeoBlock
-        titleUa="Послуги з графічного дизайну, айдентики та розробки брендбуку"
-        titleEn="Graphic Design Services, Identity & Brandbook Development"
+        titleUa="Послуги графічного дизайну, розробки айдентики та брендінг від Pozdni Team Agency"
+        titleEn="Graphic Design, Brand Identity & Packaging Services by Pozdni Team Agency"
         paragraphsUa={[
-          "Професійні послуги графічного дизайну від Pozdni Team — це створення преміального візуального образу бренду, який запам’ятовується з першого погляду. Ми розробляємо унікальні логотипи, фірмовий стиль, гайдбуки та брендбуки для компаній будь-якого масштабу.",
-          "Також ми спеціалізуємося на дизайні упаковки товарів, етикеток, поліграфії для закладів HoReCa (меню, плакати, вивіски), оформленні точок продажу (POS-матеріали) та створенні високоефективних рекламних банерів і креативів для цифрових каналів (Meta Ads, Google Banner Ads).",
-          "Якісний графічний дизайн підвищує довіру до бренду, вирізняє вас серед конкурентів та безпосередньо впливає на готовність клієнта купити ваш продукт за вищою ціною."
+          "Візуальний стиль бізнесу — це перший індикатор довіри клієнта. Графічний дизайн від Pozdni Team Agency перетворює цінності вашої компанії на виражену айдентику, логотипи та брендбуки, що виділяються серед конкурентів.",
+          "Ми розробляємо дизайн упаковки для роздрібних товарів, фірмові елементи для HoReCa (меню, стаканчики, форму, вивіски), рекламні креативи та презентаційні матеріали.",
+          "Кожен дизайн-проєкт створюється у тісній взаємодії з маркетологом, що гарантує не лише візуальну естетику, але й комерційну ефективність матеріалів."
         ]}
         paragraphsEn={[
-          "Professional graphic design services by Pozdni Team build a premium visual presence that sets your brand apart. We craft bespoke logos, visual identity systems, style guides, and brandbooks.",
-          "We also excel in packaging design, product labels, collateral print materials for HoReCa (menus, signage, posters), retail POS displays, and high-performing digital marketing assets for Meta Ads and Google display networks.",
-          "Strategic visual design builds consumer trust, elevates perceived brand value, and drives conversions."
+          "Visual presentation is the primary indicator of brand trust. Pozdni Team Agency crafts expressive brand identity, logo design, and comprehensive brand guidelines that elevate market presence.",
+          "We design packaging for retail products, branded collateral for hospitality (menus, custom cups, signage), high-converting ad visuals, and executive pitch decks.",
+          "Every design asset is developed alongside marketing strategists to ensure maximum aesthetic quality coupled with commercial effectiveness."
         ]}
       />
-
-      {/* CTA */}
-      <section className="section" style={{ textAlign: 'center' }}>
-        <div className="container">
-          <h2 style={{ fontSize: '2.2rem', marginBottom: '1.5rem' }}>
-            {t('Обговоримо візуальний стиль вашого бренду?', 'Discuss Your Brand Visual Style?')}
-          </h2>
-          <button onClick={() => onOpenContact('Дизайн')} className="btn btn-accent">
-            <span>{t('Обговорити завдання', 'Discuss Task')}</span>
-            <ArrowRight size={18} />
-          </button>
-        </div>
-      </section>
     </div>
   );
 };

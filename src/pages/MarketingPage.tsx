@@ -5,7 +5,7 @@ import { MARKETING_SERVICES_CATALOG } from '../config/servicesCatalog';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { SeoBlock } from '../components/SeoBlock';
 import { AGENCY_CONFIG } from '../config/agencyConfig';
-import { Target, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Target, CheckCircle2, ArrowRight, TrendingUp } from 'lucide-react';
 
 interface MarketingPageProps {
   onOpenContact: (serviceName?: string) => void;
@@ -23,41 +23,74 @@ export const MarketingPage: React.FC<MarketingPageProps> = ({ onOpenContact }) =
 
   return (
     <div>
-      {/* HERO */}
-      <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderBottom: '1px solid var(--border-color)' }}>
+      {/* HERO BANNER WITH PHOTOGRAPHY */}
+      <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderBottom: '1px solid var(--border-color)', paddingTop: '3.5rem', paddingBottom: '4rem' }}>
         <div className="container">
-          <div style={{ maxWidth: '840px' }}>
-            <span className="tag tag-accent" style={{ marginBottom: '1.2rem' }}>
-              <Target size={14} style={{ marginRight: '0.4rem' }} />
-              {t('Напрям: Маркетинг', 'Direction: Marketing')}
-            </span>
-            <h1 style={{ marginBottom: '1.5rem' }}>
-              {t(
-                'Як побудувати маркетингову систему, що приносить стабільний потік клієнтів?',
-                'How to build a marketing system that delivers a consistent customer pipeline?'
-              )}
-            </h1>
-            <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', lineHeight: '1.65' }}>
-              {t(
-                'Ми допомагаємо знайти унікальне позиціонування бізнесу, розробити виражену стратегію, побудувати воронки продажів та оптимізувати рекламні витрати.',
-                'We help crystallize unique market positioning, formulate executable growth strategies, build sales funnels, and optimize marketing spend.'
-              )}
-            </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+            <div>
+              <span className="tag tag-accent" style={{ marginBottom: '1.2rem' }}>
+                <Target size={14} style={{ marginRight: '0.4rem' }} />
+                {t('Напрям: Маркетинг & Стратегія', 'Direction: Marketing & Strategy')}
+              </span>
+              <h1 style={{ marginBottom: '1.4rem' }}>
+                {t(
+                  'Як побудувати маркетингову систему, що приносить стабільний потік клієнтів?',
+                  'How to build a marketing system that delivers a consistent customer pipeline?'
+                )}
+              </h1>
+              <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '2rem' }}>
+                {t(
+                  'Ми допомагаємо знайти унікальне позиціонування бізнесу, розробити виражену стратегію, побудувати воронки продажів та оптимізувати рекламні витрати.',
+                  'We help crystallize unique market positioning, formulate executable growth strategies, build sales funnels, and optimize marketing spend.'
+                )}
+              </p>
+              <button onClick={() => onOpenContact('Маркетингова стратегія')} className="btn btn-accent">
+                <span>{t('Замовити маркетинговий аудит', 'Order Marketing Audit')}</span>
+                <ArrowRight size={16} />
+              </button>
+            </div>
+
+            {/* Banner Photo */}
+            <div 
+              style={{
+                borderRadius: 'var(--radius-lg)',
+                overflow: 'hidden',
+                height: '360px',
+                position: 'relative',
+                boxShadow: 'var(--shadow-lg)'
+              }}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" 
+                alt="Marketing Analytics & Strategy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(20,20,22,0.8) 0%, transparent 60%)' }} />
+              <div style={{ position: 'absolute', bottom: '1.5rem', left: '1.5rem', right: '1.5rem', color: '#FFFFFF' }}>
+                <span className="tag" style={{ backgroundColor: 'var(--accent)', color: '#FFFFFF', marginBottom: '0.4rem' }}>
+                  <TrendingUp size={13} style={{ marginRight: '0.3rem' }} />
+                  {t('СИСТЕМНИЙ МАРКЕТИНГ', 'SYSTEMIC MARKETING')}
+                </span>
+                <h3 style={{ color: '#FFFFFF', fontSize: '1.3rem' }}>
+                  {t('Аналітика, Воронки & Масштабування', 'Analytics, Funnels & Scaling')}
+                </h3>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* WHEN NEEDED */}
+      {/* WHEN NEEDED - MOBILE CAROUSEL */}
       <section className="section">
         <div className="container">
           <div style={{ marginBottom: '2.5rem' }}>
             <h2>{t('Коли потрібні маркетингові послуги?', 'When Do You Need Marketing Services?')}</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
+          <div className="mobile-carousel">
             {scenarios.map((sc, i) => (
               <div key={i} className="card" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                 <CheckCircle2 size={20} color="var(--accent)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
-                <span style={{ fontSize: '1rem', fontWeight: 600 }}>{sc}</span>
+                <span style={{ fontSize: '0.96rem', fontWeight: 600, color: 'var(--text-primary)' }}>{sc}</span>
               </div>
             ))}
           </div>
@@ -78,10 +111,10 @@ export const MarketingPage: React.FC<MarketingPageProps> = ({ onOpenContact }) =
       {/* PROCESS */}
       <section className="section">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3.5rem auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem auto' }}>
             <h2>{t('Процес роботи з маркетингу', 'Marketing Workflow Process')}</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem' }}>
+          <div className="mobile-carousel">
             {[
               { step: '01', titleUa: 'Аналіз & Аудит', titleEn: 'Audit & Analysis', descUa: 'Занурення в бізнес, аналіз конкурентів та аудиторії.', descEn: 'Deep dive into business, competitors and target audience.' },
               { step: '02', titleUa: 'Стратегія & Гіпотези', titleEn: 'Strategy & Hypotheses', descUa: 'Побудова покрокової карти дій та пріоритетів.', descEn: 'Formulating step-by-step roadmap and priorities.' },
@@ -89,55 +122,43 @@ export const MarketingPage: React.FC<MarketingPageProps> = ({ onOpenContact }) =
               { step: '04', titleUa: 'Аналітика & Оптимізація', titleEn: 'Analytics & Scaling', descUa: 'Контроль KPI, аналіз результатів та масштабування.', descEn: 'Tracking KPIs, analyzing outcomes and scaling growth.' }
             ].map((p, i) => (
               <div key={i} className="card">
-                <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--accent)', display: 'block', marginBottom: '0.6rem' }}>
+                <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent)', display: 'block', marginBottom: '0.5rem' }}>
                   {p.step}
                 </span>
-                <h4 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', fontFamily: 'var(--font-body)' }}>{t(p.titleUa, p.titleEn)}</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{t(p.descUa, p.descEn)}</p>
+                <h4 style={{ fontSize: '1.15rem', marginBottom: '0.5rem', fontFamily: 'var(--font-body)' }}>{t(p.titleUa, p.titleEn)}</h4>
+                <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>{t(p.descUa, p.descEn)}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ SECTION */}
       <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderTop: '1px solid var(--border-color)' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <h2>{t('Запитання щодо маркетингу', 'Marketing Questions')}</h2>
+          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem auto' }}>
+            <span className="tag tag-accent" style={{ marginBottom: '0.8rem' }}>FAQ</span>
+            <h2>{t('Часті запитання про маркетинг', 'Marketing FAQ')}</h2>
           </div>
           <FAQAccordion items={AGENCY_CONFIG.faq.slice(0, 4)} />
         </div>
       </section>
 
-      {/* SEO BLOCK */}
+      {/* SEO BLOCK RIGHT BEFORE FOOTER */}
       <SeoBlock
-        titleUa="Маркетингова агенція Pozdni Team — Послуги з маркетингу та комплексного супроводу бізнесу"
-        titleEn="Pozdni Team Agency — Strategic Marketing Services & Business Growth"
+        titleUa="Послуги маркетингу та стратегічного аналізу від Pozdni Team Agency"
+        titleEn="Strategic Marketing & Analytics Services by Pozdni Team Agency"
         paragraphsUa={[
-          "Послуги з маркетингу від Pozdni Team Agency включають повний цикл аналітичної та стратегічної роботи: розробку маркетингової стратегії, проведення глибокого аудиту існуючих систем продажів, формування чіткого позиціонування бренду та унікальної ціннісної пропозиції (УТП), а також побудову автоматизованих воронок лідогенерації.",
-          "Наша команда допомагає бізнесам у Києві, по всій Україні та на міжнародних ринках залучати цільових клієнтів, підвищувати конверсію та оптимізувати вартість залучення (CAC). Ми не просто пропонуємо разові консультації, а виступаємо як системний зовнішній відділ маркетингу з регулярними стратегічними сесіями та прозорою аналітикою.",
-          "Завдяки зв’язку трьох ключових фахівців — стратега, дизайнера та SMM-експерта — ваші маркетингові кампанії отримують не лише точний таргетинг і глибоке розуміння аудиторії, але й продаючий візуал і переконливі тексти."
+          "Системний маркетинг — це фундамент стабільного зростання будь-якого бізнесу. Команда Pozdni Team Agency допомагає відійти від інтуїтивних хаотичних дій до вимірюваної маркетингової стратегії з чіткими KPI.",
+          "Ми проводимо глибокі дослідження ринку, аудиторії та конкурентів, формуємо ціннісну пропозицію (УТП), будуємо воронки залучення та налаштовуємо наскрізну аналітику.",
+          "Незалежно від того, чи потрібен вам разовий маркетинговий аудит перед запуском нового продукту, чи повноцінне стратегічне супроводження — ми гарантуємо прозорий підхід та фокус на вимірній окупності."
         ]}
         paragraphsEn={[
-          "Marketing services from Pozdni Team Agency encompass a complete suite of analytical and strategic initiatives: comprehensive marketing strategy creation, sales funnel auditing, unique value proposition (UVP) development, and customer acquisition funnel architecture.",
-          "We empower businesses in Kyiv, across Ukraine, and globally to lower customer acquisition costs (CAC) while boosting conversion rates. We serve as your dedicated external marketing department with bi-weekly strategic alignment calls and actionable analytics.",
-          "By synchronizing marketing strategy, visual design, and social media execution, your campaigns achieve both strategic positioning and high-converting visual creative."
+          "Systemic marketing forms the backbone of predictable business growth. Pozdni Team Agency guides companies from fragmented marketing actions to a structured strategy with clear performance metrics.",
+          "We execute deep market, competitor, and audience research, craft unique value propositions (UVP), construct multi-stage sales funnels, and implement end-to-end performance analytics.",
+          "Whether you require a one-off pre-launch audit or long-term strategic growth execution, we deliver transparent workflows focused on verifiable ROI."
         ]}
       />
-
-      {/* CTA */}
-      <section className="section" style={{ textAlign: 'center' }}>
-        <div className="container">
-          <h2 style={{ fontSize: '2.2rem', marginBottom: '1.5rem' }}>
-            {t('Обговоримо маркетингові цілі вашого бізнесу?', 'Discuss Your Business Marketing Goals?')}
-          </h2>
-          <button onClick={() => onOpenContact('Маркетинг')} className="btn btn-accent">
-            <span>{t('Обговорити завдання', 'Discuss Task')}</span>
-            <ArrowRight size={18} />
-          </button>
-        </div>
-      </section>
     </div>
   );
 };
