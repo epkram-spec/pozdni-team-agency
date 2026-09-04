@@ -17,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onNavigate, onOpenCo
     { id: 'marketing', labelUa: 'Маркетинг', labelEn: 'Marketing' },
     { id: 'design', labelUa: 'Дизайн', labelEn: 'Design' },
     { id: 'smm', labelUa: 'SMM', labelEn: 'SMM' },
-    { id: 'complex', labelUa: 'Комплексні послуги', labelEn: 'Integrated' },
+    { id: 'complex', labelUa: 'Комплекс', labelEn: 'Integrated' },
     { id: 'portfolio', labelUa: 'Портфоліо', labelEn: 'Portfolio' },
     { id: 'contacts', labelUa: 'Контакти', labelEn: 'Contacts' }
   ];
