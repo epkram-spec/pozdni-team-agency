@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { ServiceCategorySection } from '../components/ServiceCategorySection';
 import { COMPLEX_SERVICES_CATALOG } from '../config/servicesCatalog';
 import { FAQAccordion } from '../components/FAQAccordion';
+import { SeoBlock } from '../components/SeoBlock';
 import { AGENCY_CONFIG } from '../config/agencyConfig';
 import { Users, CheckCircle2, ArrowRight } from 'lucide-react';
 
@@ -63,7 +64,7 @@ export const ComplexServicesPage: React.FC<ComplexServicesPageProps> = ({ onOpen
         </div>
       </section>
 
-      {/* CATALOG (B146:E168) */}
+      {/* CATALOG */}
       <section className="section" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="container">
           <div style={{ marginBottom: '3rem' }}>
@@ -103,19 +104,20 @@ export const ComplexServicesPage: React.FC<ComplexServicesPageProps> = ({ onOpen
       </section>
 
       {/* SEO BLOCK */}
-      <section className="section" style={{ backgroundColor: 'var(--bg-subtle)', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-        <div className="container" style={{ maxWidth: '900px' }}>
-          <h3 style={{ fontSize: '1.1rem', marginBottom: '0.8rem', color: 'var(--text-secondary)' }}>
-            {t('Маркетингова агенція Pozdni Team — Комплексні послуги', 'Pozdni Team Agency — Turnkey Integrated Marketing Services')}
-          </h3>
-          <p>
-            {t(
-              'Комплексна упаковка бренду, розробка маркетингової стратегії, дизайн айдентики та SMM-супровід від команди з трьох фахівців.',
-              'Turnkey brand packaging, marketing strategy, brand identity design, and full-funnel SMM execution.'
-            )}
-          </p>
-        </div>
-      </section>
+      <SeoBlock
+        titleUa="Комплексні послуги під ключ — Синергія 3 фахівців для вашого бізнесу"
+        titleEn="Integrated Turnkey Services — 3-Specialist Synergy for Business Growth"
+        paragraphsUa={[
+          "Формат комплексного супроводу бізнесу від Pozdni Team Agency поєднує експертизу трьох ключових спеціалістів: маркетингового стратега, графічного дизайнера та SMM-спеціаліста. Це повноцінна альтернатива розрізненим фрілансерам чи дорогому внутрішньому штату.",
+          "Ми беремо на себе повну упаковку нового бренду з нуля, ребрендинг існуючих компаній, запуск комплексних промо-кампаній або постійну роботу у форматі «Зовнішній відділ маркетингу» із фіксованою щомісячною оплатою та прозорими KPI.",
+          "Комплексний підхід гарантує, що вся маркетингова комунікація — від аналітики ринку до дизайну упаковки та рекламного креативу в соцмережах — працює як єдиний злагоджений механізм."
+        ]}
+        paragraphsEn={[
+          "Integrated business growth support by Pozdni Team Agency pairs three core experts: a marketing strategist, visual brand designer, and SMM execution specialist into one synchronized workflow.",
+          "We handle end-to-end brand packaging from scratch, corporate rebranding, strategic launch campaigns, or monthly retainer ops as your external marketing team.",
+          "This integrated methodology ensures that every asset — from audience positioning to packaging design and Instagram ad copy — works towards measurable revenue targets."
+        ]}
+      />
 
       {/* CTA */}
       <section className="section" style={{ textAlign: 'center' }}>

@@ -17,47 +17,49 @@ export const PromoBanner: React.FC<PromoBannerProps> = ({ onOpenContact }) => {
 
   return (
     <div 
+      className="promo-banner"
       style={{
         backgroundColor: 'var(--accent)',
         color: '#FFFFFF',
-        padding: '0.75rem 1rem',
-        fontSize: '0.92rem',
+        padding: '0.65rem 1rem',
+        fontSize: '0.88rem',
         position: 'relative',
         zIndex: 90
       }}
     >
       <div 
-        className="container" 
+        className="container promo-banner-content" 
         style={{ 
           display: 'flex', 
           alignItems: 'center', 
           justifyContent: 'space-between',
           flexWrap: 'wrap',
-          gap: '0.8rem'
+          gap: '0.6rem 1rem'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+        <div className="promo-banner-text" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
           <span 
             style={{ 
-              backgroundColor: 'rgba(255, 255, 255, 0.2)', 
+              backgroundColor: 'rgba(255, 255, 255, 0.25)', 
               padding: '0.2rem 0.6rem', 
               borderRadius: 'var(--radius-full)', 
-              fontSize: '0.75rem', 
+              fontSize: '0.72rem', 
               fontWeight: 800,
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.3rem'
+              gap: '0.3rem',
+              whiteSpace: 'nowrap'
             }}
           >
-            <Sparkles size={14} />
+            <Sparkles size={13} />
             {t(AGENCY_CONFIG.promoBanner.badgeUa || '', AGENCY_CONFIG.promoBanner.badgeEn || '')}
           </span>
-          <span style={{ fontWeight: 500 }}>
+          <span style={{ fontWeight: 500, fontSize: '0.86rem', lineHeight: '1.3' }}>
             {t(AGENCY_CONFIG.promoBanner.textUa, AGENCY_CONFIG.promoBanner.textEn)}
           </span>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div className="promo-banner-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginLeft: 'auto' }}>
           <button 
             onClick={onOpenContact}
             style={{
@@ -65,26 +67,30 @@ export const PromoBanner: React.FC<PromoBannerProps> = ({ onOpenContact }) => {
               color: 'var(--accent)',
               border: 'none',
               borderRadius: 'var(--radius-full)',
-              padding: '0.35rem 0.9rem',
+              padding: '0.35rem 0.85rem',
               fontWeight: 700,
-              fontSize: '0.85rem',
+              fontSize: '0.8rem',
               cursor: 'pointer',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.4rem'
+              gap: '0.35rem',
+              whiteSpace: 'nowrap',
+              boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
             }}
           >
             <span>{t(AGENCY_CONFIG.promoBanner.ctaTextUa, AGENCY_CONFIG.promoBanner.ctaTextEn)}</span>
-            <ArrowRight size={14} />
+            <ArrowRight size={13} />
           </button>
           <button
             onClick={() => setVisible(false)}
             style={{
               background: 'none',
               border: 'none',
-              color: 'rgba(255, 255, 255, 0.8)',
+              color: 'rgba(255, 255, 255, 0.9)',
               cursor: 'pointer',
-              padding: '0.2rem'
+              padding: '0.2rem',
+              display: 'flex',
+              alignItems: 'center'
             }}
             aria-label="Hide promo banner"
           >

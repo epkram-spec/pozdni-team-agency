@@ -2,7 +2,7 @@ import { ServiceCategory } from '../types';
 
 export const DESIGN_SERVICES_CATALOG: ServiceCategory[] = [
   {
-    title: "Айдентика та Брендінг (B4:E25)",
+    title: "Айдентика та Брендінг",
     items: [
       {
         id: "d1",
@@ -27,14 +27,14 @@ export const DESIGN_SERVICES_CATALOG: ServiceCategory[] = [
       },
       {
         id: "d4",
-        name: "Розробка концепції брендіингу",
+        name: "Розробка концепції брендінгу",
         category: "Айдентика",
         description: "Формування візуального духу бренду, мудборди та стильовий напрямок перед початком дизайну."
       }
     ]
   },
   {
-    title: "Упаковка та Носії (B26:E40)",
+    title: "Упаковка та Носії",
     items: [
       {
         id: "d5",
@@ -58,7 +58,7 @@ export const DESIGN_SERVICES_CATALOG: ServiceCategory[] = [
     ]
   },
   {
-    title: "Дизайн для Цифрових Каналів (B41:E58)",
+    title: "Дизайн для Цифрових Каналів",
     items: [
       {
         id: "d8",
@@ -85,7 +85,7 @@ export const DESIGN_SERVICES_CATALOG: ServiceCategory[] = [
 
 export const SMM_SERVICES_CATALOG: ServiceCategory[] = [
   {
-    title: "Стратегія та Контент (B59:E75)",
+    title: "Стратегія та Контент",
     items: [
       {
         id: "s1",
@@ -110,7 +110,7 @@ export const SMM_SERVICES_CATALOG: ServiceCategory[] = [
     ]
   },
   {
-    title: "Продакшн та Короткі Відео (B76:E88)",
+    title: "Продакшн та Короткі Відео",
     items: [
       {
         id: "s4",
@@ -128,7 +128,7 @@ export const SMM_SERVICES_CATALOG: ServiceCategory[] = [
     ]
   },
   {
-    title: "Адміністрування та Реклама (B89:E101)",
+    title: "Адміністрування та Реклама",
     items: [
       {
         id: "s6",
@@ -155,7 +155,7 @@ export const SMM_SERVICES_CATALOG: ServiceCategory[] = [
 
 export const MARKETING_SERVICES_CATALOG: ServiceCategory[] = [
   {
-    title: "Стратегічний Маркетинг (B102:E120)",
+    title: "Стратегічний Маркетинг",
     items: [
       {
         id: "m1",
@@ -181,7 +181,7 @@ export const MARKETING_SERVICES_CATALOG: ServiceCategory[] = [
     ]
   },
   {
-    title: "Воронки Продажів та Просування (B121:E135)",
+    title: "Воронки Продажів та Просування",
     items: [
       {
         id: "m4",
@@ -204,7 +204,7 @@ export const MARKETING_SERVICES_CATALOG: ServiceCategory[] = [
     ]
   },
   {
-    title: "Аналітика та Консалтинг (B136:E145)",
+    title: "Аналітика та Консалтинг",
     items: [
       {
         id: "m7",
@@ -224,7 +224,7 @@ export const MARKETING_SERVICES_CATALOG: ServiceCategory[] = [
 
 export const COMPLEX_SERVICES_CATALOG: ServiceCategory[] = [
   {
-    title: "Комплексні Рішення Команди 3 Фахівців (B146:E168)",
+    title: "Комплексні Рішення Команди 3 Фахівців",
     items: [
       {
         id: "c1",

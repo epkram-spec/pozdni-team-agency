@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { ServiceCategorySection } from '../components/ServiceCategorySection';
 import { SMM_SERVICES_CATALOG } from '../config/servicesCatalog';
 import { FAQAccordion } from '../components/FAQAccordion';
+import { SeoBlock } from '../components/SeoBlock';
 import { AGENCY_CONFIG } from '../config/agencyConfig';
 import { Share2, CheckCircle2, ArrowRight } from 'lucide-react';
 
@@ -63,7 +64,7 @@ export const SmmPage: React.FC<SmmPageProps> = ({ onOpenContact }) => {
         </div>
       </section>
 
-      {/* CATALOG (B59:E101) */}
+      {/* CATALOG */}
       <section className="section" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="container">
           <div style={{ marginBottom: '3rem' }}>
@@ -110,19 +111,20 @@ export const SmmPage: React.FC<SmmPageProps> = ({ onOpenContact }) => {
       </section>
 
       {/* SEO BLOCK */}
-      <section className="section" style={{ backgroundColor: 'var(--bg-subtle)', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-        <div className="container" style={{ maxWidth: '900px' }}>
-          <h3 style={{ fontSize: '1.1rem', marginBottom: '0.8rem', color: 'var(--text-secondary)' }}>
-            {t('SMM Агенція Pozdni Team — Послуги ведення соціальних мереж', 'Pozdni Team SMM Agency — Social Media Services')}
-          </h3>
-          <p>
-            {t(
-              'Ведення Instagram, TikTok, Facebook, розробка контент-плану, зйомка Reels, створення візуального стилю стрічки та ком’юніті-менеджмент для бренду.',
-              'End-to-end management of Instagram, TikTok, Facebook, Reels production, feed curation, and community engagement.'
-            )}
-          </p>
-        </div>
-      </section>
+      <SeoBlock
+        titleUa="Послуги з ведення соцмереж (SMM) та продакшну Reels / Shorts"
+        titleEn="SMM Management & Short Video (Reels/Shorts) Production"
+        paragraphsUa={[
+          "Професійне просування в соціальних мережах (Instagram, Facebook, TikTok) від Pozdni Team Agency. Ми створюємо індивідуальні SMM-стратегії, розробляємо естетичну візуальну сітку профілю та пишемо експертні продаючі тексти із врахуванням унікального Tone of Voice бренду.",
+          "Наша команда забезпечує повний цикл відео-продакшну: розробку сценаріїв для коротких відео Reels та Shorts, організацію зйомок, професійний монтаж з динамічними субтитрами та розробку креативів для таргетованої реклами.",
+          "Окрім контенту, ми беремо на себе системне модерацію ком'юніті, швидку відповідь у директ, співпрацю з лідерами думок (інфлюенсерами) та щомісячний аналіз приросту аудиторії і залученості."
+        ]}
+        paragraphsEn={[
+          "Professional SMM management across Instagram, Facebook, and TikTok by Pozdni Team Agency. We create custom social media strategies, design cohesive aesthetic feeds, and write engaging copy aligned with your brand's Tone of Voice.",
+          "Our team delivers full-cycle short video production: writing viral Reels & Shorts scripts, organizing video shoots, editing with dynamic subtitles, and producing ad creatives for targeted ad campaigns.",
+          "Beyond content creation, we handle direct message moderation, community building, influencer outreach, and monthly growth performance tracking."
+        ]}
+      />
 
       {/* CTA */}
       <section className="section" style={{ textAlign: 'center' }}>

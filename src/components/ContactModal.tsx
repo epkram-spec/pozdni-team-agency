@@ -67,12 +67,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, ini
         position: 'fixed',
         inset: 0,
         zIndex: 1000,
-        backgroundColor: 'rgba(20, 20, 22, 0.7)',
+        backgroundColor: 'rgba(15, 15, 18, 0.75)',
         backdropFilter: 'blur(8px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '1.5rem',
+        padding: '1rem',
         overflowY: 'auto'
       }}
       onClick={onClose}
@@ -82,8 +82,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, ini
           backgroundColor: 'var(--bg-surface)',
           borderRadius: 'var(--radius-lg)',
           width: '100%',
-          maxWidth: '560px',
-          padding: '2.5rem',
+          maxWidth: '540px',
+          maxHeight: 'calc(100vh - 2rem)',
+          overflowY: 'auto',
+          padding: '1.8rem',
           boxShadow: 'var(--shadow-lg)',
           border: '1px solid var(--border-color)',
           position: 'relative'
@@ -95,44 +97,50 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, ini
           onClick={onClose}
           style={{
             position: 'absolute',
-            top: '1.5rem',
-            right: '1.5rem',
-            background: 'none',
+            top: '1.2rem',
+            right: '1.2rem',
+            background: 'var(--bg-subtle)',
             border: 'none',
+            borderRadius: '50%',
+            width: '36px',
+            height: '36px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
             cursor: 'pointer',
             color: 'var(--text-secondary)'
           }}
           aria-label="Close modal"
         >
-          <X size={24} />
+          <X size={20} />
         </button>
 
         {status === 'success' ? (
-          <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-            <CheckCircle2 size={64} color="var(--accent)" style={{ margin: '0 auto 1.5rem' }} />
-            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>
+          <div style={{ textAlign: 'center', padding: '1.5rem 0.5rem' }}>
+            <CheckCircle2 size={56} color="var(--accent)" style={{ margin: '0 auto 1.2rem' }} />
+            <h3 style={{ fontSize: '1.6rem', marginBottom: '0.8rem' }}>
               {t('Заявку сформовано!', 'Request Created!')}
             </h3>
-            <p style={{ marginBottom: '2rem' }}>
+            <p style={{ marginBottom: '1.8rem', color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
               {t(
                 'Дякуємо! Наш поштовий клієнт відкрито для відправки листів на epkram@gmail.com. Ми зв’яжемося з вами найближчим часом.',
                 'Thank you! Your mail client has opened to send to epkram@gmail.com. We will get back to you shortly.'
               )}
             </p>
-            <button onClick={handleReset} className="btn btn-primary">
+            <button onClick={handleReset} className="btn btn-primary" style={{ width: '100%' }}>
               {t('Зрозуміло', 'Got it')}
             </button>
           </div>
         ) : (
           <>
-            <div style={{ marginBottom: '2rem' }}>
-              <span className="tag tag-accent" style={{ marginBottom: '0.6rem' }}>
+            <div style={{ marginBottom: '1.4rem', paddingRight: '2rem' }}>
+              <span className="tag tag-accent" style={{ marginBottom: '0.4rem', fontSize: '0.75rem' }}>
                 {t('Зв’язок з командою', 'Get in Touch')}
               </span>
-              <h3 style={{ fontSize: '1.8rem' }}>
+              <h3 style={{ fontSize: '1.5rem', margin: '0.2rem 0 0.3rem 0' }}>
                 {t('Обговорити ваше завдання', 'Discuss Your Task')}
               </h3>
-              <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', marginTop: '0.4rem' }}>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', margin: 0 }}>
                 {t('Заповніть форму або напишіть нам напряму в Telegram чи на почту.', 'Fill out the form or write directly to Telegram / Email.')}
               </p>
             </div>
@@ -142,24 +150,24 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, ini
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.8rem',
-                  padding: '0.9rem 1.2rem',
+                  gap: '0.6rem',
+                  padding: '0.75rem 1rem',
                   backgroundColor: '#FDF2F2',
                   border: '1px solid #F87171',
                   borderRadius: 'var(--radius-sm)',
                   color: '#991B1B',
-                  marginBottom: '1.5rem',
-                  fontSize: '0.9rem'
+                  marginBottom: '1.2rem',
+                  fontSize: '0.88rem'
                 }}
               >
-                <AlertCircle size={20} />
+                <AlertCircle size={18} />
                 <span>{errorMessage}</span>
               </div>
             )}
 
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label className="form-label">
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label" style={{ marginBottom: '0.3rem', fontSize: '0.85rem' }}>
                   {t('Ваше ім’я', 'Your Name')} <span style={{ color: 'var(--accent)' }}>*</span>
                 </label>
                 <input 
@@ -168,12 +176,13 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, ini
                   placeholder={t('Олександр / Марія', 'John / Sarah')}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  style={{ padding: '0.65rem 0.9rem', fontSize: '0.9rem' }}
                   required
                 />
               </div>
 
-              <div className="form-group">
-                <label className="form-label">
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label" style={{ marginBottom: '0.3rem', fontSize: '0.85rem' }}>
                   {t('Компанія або сфера бізнесу', 'Company or Industry')}
                 </label>
                 <input 
@@ -182,11 +191,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, ini
                   placeholder={t('Наприклад: Ресторан, Ювелірний бренд, Beauty', 'e.g. Restaurant, Jewelry brand, Beauty')}
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  style={{ padding: '0.65rem 0.9rem', fontSize: '0.9rem' }}
                 />
               </div>
 
-              <div className="form-group">
-                <label className="form-label">
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label" style={{ marginBottom: '0.3rem', fontSize: '0.85rem' }}>
                   {t('Телефон, Email або Telegram', 'Phone, Email or Telegram')} <span style={{ color: 'var(--accent)' }}>*</span>
                 </label>
                 <input 
@@ -195,18 +205,20 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, ini
                   placeholder="+380... або @username або email@domain.com"
                   value={formData.contact}
                   onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                  style={{ padding: '0.65rem 0.9rem', fontSize: '0.9rem' }}
                   required
                 />
               </div>
 
-              <div className="form-group">
-                <label className="form-label">
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label" style={{ marginBottom: '0.3rem', fontSize: '0.85rem' }}>
                   {t('Напрям послуг', 'Service Direction')}
                 </label>
                 <select 
                   className="form-select"
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                  style={{ padding: '0.65rem 0.9rem', fontSize: '0.9rem' }}
                 >
                   <option value="all">{t('Комплексна робота команди (Маркетинг + Дизайн + SMM)', 'Complex Team (Marketing + Design + SMM)')}</option>
                   <option value="marketing">{t('Маркетинг та Стратегія', 'Marketing & Strategy')}</option>
@@ -216,22 +228,24 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, ini
                 </select>
               </div>
 
-              <div className="form-group">
-                <label className="form-label">
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label" style={{ marginBottom: '0.3rem', fontSize: '0.85rem' }}>
                   {t('Короткий опис завдання', 'Short Task Description')}
                 </label>
                 <textarea 
                   className="form-textarea"
+                  rows={3}
                   placeholder={t('Опишіть поточний стан бізнесу, цілі або що конкретно потрібно створити...', 'Describe your business current state, goals, or what needs to be built...')}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  style={{ padding: '0.65rem 0.9rem', fontSize: '0.9rem', minHeight: '70px' }}
                 />
               </div>
 
               <button 
                 type="submit" 
                 className="btn btn-accent" 
-                style={{ width: '100%', marginTop: '1rem' }}
+                style={{ width: '100%', marginTop: '0.4rem', padding: '0.85rem' }}
                 disabled={status === 'submitting'}
               >
                 {status === 'submitting' ? (

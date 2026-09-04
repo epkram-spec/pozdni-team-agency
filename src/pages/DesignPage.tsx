@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { ServiceCategorySection } from '../components/ServiceCategorySection';
 import { DESIGN_SERVICES_CATALOG } from '../config/servicesCatalog';
 import { FAQAccordion } from '../components/FAQAccordion';
+import { SeoBlock } from '../components/SeoBlock';
 import { AGENCY_CONFIG } from '../config/agencyConfig';
 import { Palette, CheckCircle2, ArrowRight } from 'lucide-react';
 
@@ -63,7 +64,7 @@ export const DesignPage: React.FC<DesignPageProps> = ({ onOpenContact }) => {
         </div>
       </section>
 
-      {/* CATALOG (B4:E58) */}
+      {/* CATALOG */}
       <section className="section" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="container">
           <div style={{ marginBottom: '3rem' }}>
@@ -110,19 +111,20 @@ export const DesignPage: React.FC<DesignPageProps> = ({ onOpenContact }) => {
       </section>
 
       {/* SEO BLOCK */}
-      <section className="section" style={{ backgroundColor: 'var(--bg-subtle)', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-        <div className="container" style={{ maxWidth: '900px' }}>
-          <h3 style={{ fontSize: '1.1rem', marginBottom: '0.8rem', color: 'var(--text-secondary)' }}>
-            {t('Студія графічного дизайну Pozdni Team — Послуги з дизайну', 'Pozdni Team Design Studio — Graphic Design Services')}
-          </h3>
-          <p>
-            {t(
-              'Розробка логотипа, айдентики, брендбуку, пакування, меню для ресторанів, поліграфії та фірмового стилю. Створюємо виразний графічний дизайн для брендів в Україні та по всьому світу.',
-              'Logo design, identity, brandbook creation, product packaging, menus for HoReCa, and print collateral.'
-            )}
-          </p>
-        </div>
-      </section>
+      <SeoBlock
+        titleUa="Послуги з графічного дизайну, айдентики та розробки брендбуку"
+        titleEn="Graphic Design Services, Identity & Brandbook Development"
+        paragraphsUa={[
+          "Професійні послуги графічного дизайну від Pozdni Team — це створення преміального візуального образу бренду, який запам’ятовується з першого погляду. Ми розробляємо унікальні логотипи, фірмовий стиль, гайдбуки та брендбуки для компаній будь-якого масштабу.",
+          "Також ми спеціалізуємося на дизайні упаковки товарів, етикеток, поліграфії для закладів HoReCa (меню, плакати, вивіски), оформленні точок продажу (POS-матеріали) та створенні високоефективних рекламних банерів і креативів для цифрових каналів (Meta Ads, Google Banner Ads).",
+          "Якісний графічний дизайн підвищує довіру до бренду, вирізняє вас серед конкурентів та безпосередньо впливає на готовність клієнта купити ваш продукт за вищою ціною."
+        ]}
+        paragraphsEn={[
+          "Professional graphic design services by Pozdni Team build a premium visual presence that sets your brand apart. We craft bespoke logos, visual identity systems, style guides, and brandbooks.",
+          "We also excel in packaging design, product labels, collateral print materials for HoReCa (menus, signage, posters), retail POS displays, and high-performing digital marketing assets for Meta Ads and Google display networks.",
+          "Strategic visual design builds consumer trust, elevates perceived brand value, and drives conversions."
+        ]}
+      />
 
       {/* CTA */}
       <section className="section" style={{ textAlign: 'center' }}>

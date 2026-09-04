@@ -48,7 +48,6 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onNavigate, onOpenCo
               key={item.id}
               onClick={() => handleNavClick(item.id)}
               className={`nav-link ${currentTab === item.id ? 'active' : ''}`}
-              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
             >
               {t(item.labelUa, item.labelEn)}
             </button>
@@ -56,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onNavigate, onOpenCo
         </nav>
 
         {/* Right Action Group */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div className="header-actions">
           {/* Language Switcher */}
           <div className="lang-switch" aria-label="Language Selector">
             <button
@@ -75,85 +74,71 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onNavigate, onOpenCo
             </button>
           </div>
 
-          {/* CTA Button */}
+          {/* Desktop CTA Button */}
           <button 
             onClick={onOpenContact} 
-            className="btn btn-primary btn-sm"
-            style={{ display: 'none' }} 
-            id="header-cta-desktop"
+            className="btn btn-primary btn-sm header-cta-desktop"
           >
-            {t('Обговорити завдання', 'Discuss Task')}
-            <ArrowUpRight size={16} />
+            <span>{t('Обговорити завдання', 'Discuss Task')}</span>
+            <ArrowUpRight size={15} />
           </button>
-          <style>{`
-            @media (min-width: 992px) {
-              #header-cta-desktop { display: inline-flex !important; }
-            }
-          `}</style>
 
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="btn btn-outline btn-sm"
-            style={{ padding: '0.5rem', display: 'flex' }}
+            className="mobile-menu-toggle"
             aria-label="Toggle Mobile Menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          <style>{`
-            @media (min-width: 992px) {
-              .header .btn-outline { display: none !important; }
-              .nav-desktop { display: flex !important; }
-            }
-            @media (max-width: 991px) {
-              .nav-desktop { display: none !important; }
-            }
-          `}</style>
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown Overlay Menu */}
       {mobileMenuOpen && (
-        <div 
-          style={{
-            position: 'absolute',
-            top: '80px',
-            left: 0,
-            right: 0,
-            backgroundColor: 'var(--bg-surface)',
-            borderBottom: '1px solid var(--border-color)',
-            padding: '1.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            boxShadow: 'var(--shadow-lg)'
-          }}
-        >
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavClick(item.id)}
-              style={{
-                textAlign: 'left',
-                background: 'none',
-                border: 'none',
-                padding: '0.6rem 0',
-                fontSize: '1.1rem',
-                fontWeight: currentTab === item.id ? '700' : '500',
-                color: currentTab === item.id ? 'var(--accent)' : 'var(--text-primary)',
-                cursor: 'pointer'
-              }}
+        <div className="mobile-menu-dropdown">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`mobile-nav-item ${currentTab === item.id ? 'active' : ''}`}
+              >
+                {t(item.labelUa, item.labelEn)}
+              </button>
+            ))}
+          </div>
+
+          <div style={{ paddingTop: '1rem', borderTop: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                {t('Мова / Language:', 'Language:')}
+              </span>
+              <div className="lang-switch">
+                <button
+                  onClick={() => setLang('ua')}
+                  className={`lang-btn ${lang === 'ua' ? 'active' : ''}`}
+                >
+                  UA
+                </button>
+                <button
+                  onClick={() => setLang('en')}
+                  className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
+                >
+                  EN
+                </button>
+              </div>
+            </div>
+
+            <button 
+              onClick={() => { setMobileMenuOpen(false); onOpenContact(); }}
+              className="btn btn-accent"
+              style={{ width: '100%', justifyContent: 'center', padding: '0.9rem' }}
             >
-              {t(item.labelUa, item.labelEn)}
+              <span>{t('Обговорити завдання', 'Discuss Task')}</span>
+              <ArrowUpRight size={18} />
             </button>
-          ))}
-          <button 
-            onClick={() => { setMobileMenuOpen(false); onOpenContact(); }}
-            className="btn btn-accent"
-            style={{ marginTop: '0.5rem', width: '100%' }}
-          >
-            {t('Обговорити завдання', 'Discuss Task')}
-          </button>
+          </div>
         </div>
       )}
     </header>

@@ -4,6 +4,7 @@ import { AGENCY_CONFIG } from '../config/agencyConfig';
 import { TeamCard } from '../components/TeamCard';
 import { PortfolioCard } from '../components/PortfolioCard';
 import { FAQAccordion } from '../components/FAQAccordion';
+import { SeoBlock } from '../components/SeoBlock';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -401,6 +402,22 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
           <FAQAccordion items={AGENCY_CONFIG.faq} />
         </div>
       </section>
+
+      {/* SEO BLOCK */}
+      <SeoBlock
+        titleUa="Маркетингова агенція Pozdni Team — Стратегія, Дизайн та SMM для зростання вашого бізнесу"
+        titleEn="Pozdni Team Marketing Agency — Strategy, Visual Design & SMM Growth"
+        paragraphsUa={[
+          "Pozdni Team Agency — це маркетингова агенція повного циклу, що поєднує глибоку маркетингову аналітику, естетичний графічний дизайн та ефективне просування в соціальних мережах. Ми допомагаємо бізнесам перетворювати увагу аудиторії на вимірний фінансовий результат.",
+          "Завдяки досвіду роботи у нішах HoReCa, ювелірних брендів, beauty-індустрії, B2B та роздрібній торгівлі ми пропонуємо випробувані рішення, які адаптуються під індивідуальні цілі вашого проєкту.",
+          "Обирайте зручний формат співпраці: разовий проєкт (аудит, брендінг, воронка), місячний Retainer-супровід чи повноцінний зовнішній відділ маркетингу під ключ."
+        ]}
+        paragraphsEn={[
+          "Pozdni Team Agency is a full-service marketing agency uniting strategic analytics, graphic design, and social media execution. We help businesses translate audience engagement into measurable sales results.",
+          "With proven expertise across HoReCa, jewelry, beauty, retail, and B2B sectors, we provide tailored strategies that scale with your brand objectives.",
+          "Choose your preferred collaboration model: project-based work, monthly retainers, or a turnkey external marketing department."
+        ]}
+      />
 
       {/* FINAL CTA */}
       <section className="section" style={{ textAlign: 'center' }}>

@@ -3,6 +3,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { ServiceCategorySection } from '../components/ServiceCategorySection';
 import { MARKETING_SERVICES_CATALOG } from '../config/servicesCatalog';
 import { FAQAccordion } from '../components/FAQAccordion';
+import { SeoBlock } from '../components/SeoBlock';
 import { AGENCY_CONFIG } from '../config/agencyConfig';
 import { Target, CheckCircle2, ArrowRight } from 'lucide-react';
 
@@ -63,7 +64,7 @@ export const MarketingPage: React.FC<MarketingPageProps> = ({ onOpenContact }) =
         </div>
       </section>
 
-      {/* CATALOG (B102:E145) */}
+      {/* CATALOG */}
       <section className="section" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="container">
           <div style={{ marginBottom: '3rem' }}>
@@ -110,19 +111,20 @@ export const MarketingPage: React.FC<MarketingPageProps> = ({ onOpenContact }) =
       </section>
 
       {/* SEO BLOCK */}
-      <section className="section" style={{ backgroundColor: 'var(--bg-subtle)', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-        <div className="container" style={{ maxWidth: '900px' }}>
-          <h3 style={{ fontSize: '1.1rem', marginBottom: '0.8rem', color: 'var(--text-secondary)' }}>
-            {t('Маркетингова агенція Pozdni Team — Послуги з маркетингу', 'Pozdni Team Agency — Marketing Services')}
-          </h3>
-          <p>
-            {t(
-              'Послуги з маркетингу включають розробку маркетингової стратегії, проведення аудиту, створення позиціонування бренду, побудову воронки продажів та постійний аналітичний супровід для бізнесу в Києві, Україні та віддалено.',
-              'Marketing services encompass strategic planning, audit, brand positioning, sales funnel building, and analytics consulting for businesses worldwide.'
-            )}
-          </p>
-        </div>
-      </section>
+      <SeoBlock
+        titleUa="Маркетингова агенція Pozdni Team — Послуги з маркетингу та комплексного супроводу бізнесу"
+        titleEn="Pozdni Team Agency — Strategic Marketing Services & Business Growth"
+        paragraphsUa={[
+          "Послуги з маркетингу від Pozdni Team Agency включають повний цикл аналітичної та стратегічної роботи: розробку маркетингової стратегії, проведення глибокого аудиту існуючих систем продажів, формування чіткого позиціонування бренду та унікальної ціннісної пропозиції (УТП), а також побудову автоматизованих воронок лідогенерації.",
+          "Наша команда допомагає бізнесам у Києві, по всій Україні та на міжнародних ринках залучати цільових клієнтів, підвищувати конверсію та оптимізувати вартість залучення (CAC). Ми не просто пропонуємо разові консультації, а виступаємо як системний зовнішній відділ маркетингу з регулярними стратегічними сесіями та прозорою аналітикою.",
+          "Завдяки зв’язку трьох ключових фахівців — стратега, дизайнера та SMM-експерта — ваші маркетингові кампанії отримують не лише точний таргетинг і глибоке розуміння аудиторії, але й продаючий візуал і переконливі тексти."
+        ]}
+        paragraphsEn={[
+          "Marketing services from Pozdni Team Agency encompass a complete suite of analytical and strategic initiatives: comprehensive marketing strategy creation, sales funnel auditing, unique value proposition (UVP) development, and customer acquisition funnel architecture.",
+          "We empower businesses in Kyiv, across Ukraine, and globally to lower customer acquisition costs (CAC) while boosting conversion rates. We serve as your dedicated external marketing department with bi-weekly strategic alignment calls and actionable analytics.",
+          "By synchronizing marketing strategy, visual design, and social media execution, your campaigns achieve both strategic positioning and high-converting visual creative."
+        ]}
+      />
 
       {/* CTA */}
       <section className="section" style={{ textAlign: 'center' }}>
