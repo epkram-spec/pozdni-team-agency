@@ -62,7 +62,7 @@ export const SmmPage: React.FC<SmmPageProps> = ({ onOpenContact }) => {
               }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" 
+                src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80" 
                 alt="SMM Video Production & Content Creation"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />

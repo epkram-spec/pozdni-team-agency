@@ -109,7 +109,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
                 }}
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1542744094-3a31b272c490?q=80&w=1000&auto=format&fit=crop" 
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" 
                   alt="Pozdni Team Agency Strategy Session"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
