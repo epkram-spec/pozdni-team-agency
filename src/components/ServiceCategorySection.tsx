@@ -23,8 +23,11 @@ export const ServiceCategorySection: React.FC<ServiceCategorySectionProps> = ({ 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
       {categories.map((cat, idx) => {
-        const isSixItems = cat.items.length === 6;
-        const gridClassName = isSixItems ? 'grid-3-col mobile-carousel' : 'mobile-carousel';
+        const gridClassName = cat.items.length === 6 
+          ? 'grid-3-col mobile-carousel' 
+          : cat.items.length === 4 
+          ? 'grid-2-col mobile-carousel' 
+          : 'grid-3-col mobile-carousel';
 
         return (
           <div 
@@ -37,7 +40,7 @@ export const ServiceCategorySection: React.FC<ServiceCategorySectionProps> = ({ 
             }}
             className="category-box"
           >
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', paddingBottom: '0.8rem', borderBottom: '1px solid var(--border-color)' }}>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '1.5rem', paddingBottom: '0.8rem', borderBottom: '1px solid var(--border-color)', textAlign: 'left' }}>
               {cat.title}
             </h3>
 

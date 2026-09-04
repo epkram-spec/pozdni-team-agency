@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { AGENCY_CONFIG } from '../config/agencyConfig';
+import { SEO_DATA } from '../config/seoConfig';
 import { TeamCard } from '../components/TeamCard';
 import { PortfolioCard } from '../components/PortfolioCard';
 import { FAQAccordion } from '../components/FAQAccordion';
@@ -18,7 +19,6 @@ import {
   Store, 
   Sparkles, 
   Building2, 
-  UserCheck, 
   Briefcase,
   UserPlus,
   Zap,
@@ -34,7 +34,7 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact }) => {
   const { t } = useLanguage();
 
-  // Exactly 6 Client Problems & Solutions for perfect 2x3 / 3x2 grid balance
+  // Exactly 6 Client Problems & Solutions for perfect 3x2 / 2x3 grid balance
   const clientProblems = [
     {
       problem: t('Маркетингові дії втратили спільний напрям', 'Marketing actions lost unified direction'),
@@ -138,11 +138,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
         </div>
       </section>
 
-      {/* VALUE PROP STATEMENT */}
+      {/* VALUE PROP STATEMENT - LEFT ALIGNED */}
       <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '860px' }}>
+        <div className="container" style={{ textAlign: 'left', maxWidth: '920px' }}>
           <span className="tag" style={{ marginBottom: '1rem' }}>{t('Чим ми корисні', 'Our Core Value')}</span>
-          <h2 style={{ fontSize: '1.75rem', lineHeight: '1.4', fontWeight: 600 }}>
+          <h2 style={{ fontSize: '1.65rem', lineHeight: '1.4', fontWeight: 600 }}>
             {t(
               "Ми не робимо дизайн заради дизайну і не пишемо пости заради публікацій. Ми створюємо цілісну систему, де кожне візуальне й текстове рішення працює на впізнаваність та зростання продажів вашого бізнесу.",
               "We don't design just for design, nor publish posts just for activity. We build a cohesive system where every visual and copy decision directly drives brand recognition and sales growth."
@@ -151,10 +151,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
         </div>
       </section>
 
-      {/* PROBLEMS VS RESULTS - EVEN 6 CARDS IN 3-COL GRID & MOBILE CAROUSEL */}
+      {/* PROBLEMS VS RESULTS - EVEN 6 CARDS IN 3-COL GRID (LEFT ALIGNED HEADER) */}
       <section className="section">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem auto' }}>
+          <div style={{ textAlign: 'left', maxWidth: '720px', marginBottom: '2.5rem' }}>
             <span className="tag tag-accent" style={{ marginBottom: '0.8rem' }}>{t('Результат співпраці', 'Impact & Results')}</span>
             <h2>{t('Які проблеми ми вирішуємо', 'Problems We Solve')}</h2>
           </div>
@@ -223,15 +223,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
         </div>
       </section>
 
-      {/* 4 CORE DIRECTIONS */}
+      {/* 4 CORE DIRECTIONS - LEFT ALIGNED HEADER */}
       <section className="section" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem auto' }}>
+          <div style={{ textAlign: 'left', maxWidth: '720px', marginBottom: '2.5rem' }}>
             <span className="tag" style={{ marginBottom: '0.8rem' }}>{t('Напрями послуг', 'Core Directions')}</span>
             <h2>{t('4 ключові вектори роботи', '4 Primary Directions')}</h2>
           </div>
 
-          <div className="mobile-carousel">
+          <div className="grid-2-col mobile-carousel">
             {/* Marketing */}
             <div className="card" style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ width: '44px', height: '44px', borderRadius: 'var(--radius-sm)', backgroundColor: 'var(--accent-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)', marginBottom: '1.2rem' }}>
@@ -295,15 +295,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
         </div>
       </section>
 
-      {/* COOPERATION FORMATS - MOBILE CAROUSEL */}
+      {/* COOPERATION FORMATS - 4 EVEN CARDS IN 2-COL GRID (LEFT ALIGNED HEADER) */}
       <section className="section">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem auto' }}>
+          <div style={{ textAlign: 'left', maxWidth: '720px', marginBottom: '2.5rem' }}>
             <span className="tag tag-accent" style={{ marginBottom: '0.8rem' }}>{t('Гнучкість', 'Flexibility')}</span>
             <h2>{t('Формати співпраці', 'Cooperation Formats')}</h2>
           </div>
 
-          <div className="mobile-carousel">
+          <div className="grid-2-col mobile-carousel">
             {AGENCY_CONFIG.collaborationFormats.map((fmt, i) => (
               <div key={i} className="card" style={{ padding: '1.5rem' }}>
                 <span style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--accent)', display: 'block', marginBottom: '0.4rem' }}>
@@ -321,10 +321,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
         </div>
       </section>
 
-      {/* TARGET AUDIENCE / SECTORS */}
+      {/* TARGET AUDIENCE / SECTORS - 6 EVEN CARDS IN 3-COL GRID (LEFT ALIGNED HEADER) */}
       <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderTop: '1px solid var(--border-color)' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 3rem auto' }}>
+          <div style={{ textAlign: 'left', maxWidth: '750px', marginBottom: '2.5rem' }}>
             <span className="tag" style={{ marginBottom: '0.8rem' }}>{t('Експертиза', 'Expertise')}</span>
             <h2>{t('Для кого ми працюємо', 'Who We Work With')}</h2>
             <p style={{ marginTop: '0.6rem' }}>
@@ -335,12 +335,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
             </p>
           </div>
 
-          <div className="mobile-carousel">
+          <div className="grid-3-col mobile-carousel">
             {AGENCY_CONFIG.targetAudiences.map((aud, i) => (
               <div key={i} className="card" style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
                   <div style={{ width: '38px', height: '38px', borderRadius: 'var(--radius-sm)', backgroundColor: 'var(--accent-light)', color: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    {i === 0 ? <Utensils size={18} /> : i === 1 ? <Gem size={18} /> : i === 2 ? <Store size={18} /> : i === 3 ? <Sparkles size={18} /> : i === 4 ? <Briefcase size={18} /> : i === 5 ? <Building2 size={18} /> : <UserCheck size={18} />}
+                    {i === 0 ? <Utensils size={18} /> : i === 1 ? <Gem size={18} /> : i === 2 ? <Store size={18} /> : i === 3 ? <Sparkles size={18} /> : i === 4 ? <Briefcase size={18} /> : <Building2 size={18} />}
                   </div>
                   <h4 style={{ fontSize: '1.05rem', fontFamily: 'var(--font-body)', margin: 0 }}>
                     {t(aud.titleUa, aud.titleEn)}
@@ -355,10 +355,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
         </div>
       </section>
 
-      {/* TEAM SECTION */}
+      {/* TEAM SECTION - LEFT ALIGNED HEADER */}
       <section className="section">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem auto' }}>
+          <div style={{ textAlign: 'left', maxWidth: '720px', marginBottom: '2.5rem' }}>
             <span className="tag tag-accent" style={{ marginBottom: '0.8rem' }}>{t('Синергія 3-х фахівців', '3 Specialist Synergy')}</span>
             <h2>{t('Команда Pozdni Team', 'Pozdni Team Experts')}</h2>
             <p style={{ marginTop: '0.6rem' }}>
@@ -377,11 +377,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
         </div>
       </section>
 
-      {/* PORTFOLIO GALLERY */}
+      {/* PORTFOLIO GALLERY - LEFT ALIGNED HEADER */}
       <section className="section" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="container">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1.5rem' }}>
-            <div>
+            <div style={{ textAlign: 'left' }}>
               <span className="tag" style={{ marginBottom: '0.8rem' }}>{t('Наші роботи', 'Our Work')}</span>
               <h2>{t('Галерея проєктів', 'Project Gallery')}</h2>
             </div>
@@ -413,7 +413,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
               boxShadow: 'var(--shadow-lg)'
             }}
           >
-            {/* Background image overlay with soft opacity */}
             <div 
               style={{
                 position: 'absolute',
@@ -426,7 +425,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
             />
             
             <div style={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
-              <div>
+              <div style={{ textAlign: 'left' }}>
                 <span className="tag" style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)', color: '#FFFFFF', marginBottom: '1rem', border: '1px solid rgba(255,255,255,0.2)' }}>
                   <UserPlus size={14} style={{ marginRight: '0.4rem' }} />
                   {t('Партнерська екосистема & Мережа', 'Partner Ecosystem & Network')}
@@ -455,7 +454,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
                 </div>
               </div>
 
-              <div style={{ backgroundColor: 'rgba(255,255,255,0.06)', padding: '2rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(255,255,255,0.12)', textAlign: 'center' }}>
+              <div style={{ backgroundColor: 'rgba(255,255,255,0.06)', padding: '2rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(255,255,255,0.12)', textAlign: 'left' }}>
                 <Award size={36} color="var(--accent)" style={{ marginBottom: '1rem' }} />
                 <h3 style={{ color: '#FFFFFF', fontSize: '1.3rem', marginBottom: '0.6rem' }}>
                   {t('Бажаєте приєднатися?', 'Want to join our network?')}
@@ -477,10 +476,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
         </div>
       </section>
 
-      {/* FAQ SECTION */}
+      {/* FAQ SECTION - LEFT ALIGNED HEADER */}
       <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderTop: '1px solid var(--border-color)' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem auto' }}>
+          <div style={{ textAlign: 'left', maxWidth: '720px', marginBottom: '2.5rem' }}>
             <span className="tag tag-accent" style={{ marginBottom: '0.8rem' }}>FAQ</span>
             <h2>{t('Часті запитання клієнтів', 'Frequently Asked Questions')}</h2>
           </div>
@@ -489,20 +488,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
         </div>
       </section>
 
-      {/* SEO BLOCK RIGHT BEFORE FOOTER */}
+      {/* SEO BLOCK RIGHT BEFORE FOOTER (FULL 5000+ CHARACTERS) */}
       <SeoBlock
-        titleUa="Маркетингова агенція Pozdni Team — Стратегія, Дизайн та SMM для зростання вашого бізнесу"
-        titleEn="Pozdni Team Marketing Agency — Strategy, Visual Design & SMM Growth"
-        paragraphsUa={[
-          "Pozdni Team Agency — це маркетингова агенція повного циклу, що поєднує глибоку маркетингову аналітику, естетичний графічний дизайн та ефективне просування в соціальних мережах. Ми допомагаємо бізнесам перетворювати увагу аудиторії на вимірний фінансовий результат.",
-          "Завдяки досвіду роботи у нішах HoReCa, ювелірних брендів, beauty-індустрії, B2B та роздрібній торгівлі ми пропонуємо випробувані рішення, які адаптуються під індивідуальні цілі вашого проєкту.",
-          "Обирайте зручний формат співпраці: разовий проєкт (аудит, брендінг, воронка), місячний Retainer-супровід чи повноцінний зовнішній відділ маркетингу під ключ."
-        ]}
-        paragraphsEn={[
-          "Pozdni Team Agency is a full-service marketing agency uniting strategic analytics, graphic design, and social media execution. We help businesses translate audience engagement into measurable sales results.",
-          "With proven expertise across HoReCa, jewelry, beauty, retail, and B2B sectors, we provide tailored strategies that scale with your brand objectives.",
-          "Choose your preferred collaboration model: project-based work, monthly retainers, or a turnkey external marketing department."
-        ]}
+        titleUa={SEO_DATA.home.seoBlockTitleUa}
+        titleEn={SEO_DATA.home.seoBlockTitleEn}
+        paragraphsUa={SEO_DATA.home.paragraphsUa}
+        paragraphsEn={SEO_DATA.home.paragraphsEn}
       />
     </div>
   );

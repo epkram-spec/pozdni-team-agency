@@ -4,8 +4,9 @@ import { ServiceCategorySection } from '../components/ServiceCategorySection';
 import { MARKETING_SERVICES_CATALOG } from '../config/servicesCatalog';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { SeoBlock } from '../components/SeoBlock';
+import { SEO_DATA } from '../config/seoConfig';
 import { AGENCY_CONFIG } from '../config/agencyConfig';
-import { Target, CheckCircle2, ArrowRight, TrendingUp } from 'lucide-react';
+import { Target, CheckCircle2, ArrowRight, TrendingUp, BarChart3, Rocket } from 'lucide-react';
 
 interface MarketingPageProps {
   onOpenContact: (serviceName?: string) => void;
@@ -80,13 +81,14 @@ export const MarketingPage: React.FC<MarketingPageProps> = ({ onOpenContact }) =
         </div>
       </section>
 
-      {/* WHEN NEEDED - MOBILE CAROUSEL */}
+      {/* WHEN NEEDED - LEFT ALIGNED HEADER & 2-COL BALANCED GRID */}
       <section className="section">
         <div className="container">
-          <div style={{ marginBottom: '2.5rem' }}>
+          <div style={{ textAlign: 'left', maxWidth: '720px', marginBottom: '2.5rem' }}>
+            <span className="tag tag-accent" style={{ marginBottom: '0.8rem' }}>{t('Потреба бізнесу', 'Business Need')}</span>
             <h2>{t('Коли потрібні маркетингові послуги?', 'When Do You Need Marketing Services?')}</h2>
           </div>
-          <div className="mobile-carousel">
+          <div className="grid-2-col mobile-carousel">
             {scenarios.map((sc, i) => (
               <div key={i} className="card" style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                 <CheckCircle2 size={20} color="var(--accent)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
@@ -97,24 +99,100 @@ export const MarketingPage: React.FC<MarketingPageProps> = ({ onOpenContact }) =
         </div>
       </section>
 
-      {/* CATALOG */}
+      {/* VISUAL INTERMEDIARY BANNER 1: DATA & ANALYTICS */}
+      <section className="section" style={{ padding: '2rem 0' }}>
+        <div className="container">
+          <div 
+            style={{
+              position: 'relative',
+              borderRadius: 'var(--radius-lg)',
+              overflow: 'hidden',
+              height: '240px',
+              display: 'flex',
+              alignItems: 'center',
+              padding: '2.5rem',
+              boxShadow: 'var(--shadow-md)'
+            }}
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop" 
+              alt="Data Driven Marketing Strategy" 
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(20,20,22,0.85) 0%, rgba(20,20,22,0.35) 100%)' }} />
+            <div style={{ position: 'relative', zIndex: 2, color: '#FFFFFF', maxWidth: '640px' }}>
+              <span className="tag" style={{ backgroundColor: 'var(--accent)', color: '#FFFFFF', marginBottom: '0.8rem' }}>
+                <BarChart3 size={13} style={{ marginRight: '0.3rem' }} />
+                {t('Маркетинг на основі даних', 'Data-Driven Growth')}
+              </span>
+              <h3 style={{ color: '#FFFFFF', fontSize: '1.5rem', marginBottom: '0.6rem' }}>
+                {t('Оцифровуємо кожен крок клієнта від кліка до повторної покупки', 'Measuring every touchpoint from lead click to recurring customer')}
+              </h3>
+              <p style={{ color: '#E0DFE3', fontSize: '0.92rem' }}>
+                {t('Будуємо прозорі звіти з ROMI, CAC та LTV замість абстрактних графіків.', 'Building real ROMI, CAC, and LTV attribution instead of generic graphs.')}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CATALOG - LEFT ALIGNED HEADER */}
       <section className="section" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="container">
-          <div style={{ marginBottom: '3rem' }}>
+          <div style={{ textAlign: 'left', maxWidth: '720px', marginBottom: '2.5rem' }}>
+            <span className="tag" style={{ marginBottom: '0.8rem' }}>{t('Повний каталог', 'Full Catalog')}</span>
             <h2>{t('Каталог маркетингових послуг', 'Marketing Service Catalog')}</h2>
-            <p>{t('Спеціалізовані рішення для розбудови стратегії та системного зростання.', 'Targeted solutions for strategy development and scalable growth.')}</p>
+            <p style={{ marginTop: '0.5rem' }}>{t('Спеціалізовані рішення для розбудови стратегії та системного зростання.', 'Targeted solutions for strategy development and scalable growth.')}</p>
           </div>
           <ServiceCategorySection categories={MARKETING_SERVICES_CATALOG} onOpenContact={onOpenContact} />
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* VISUAL INTERMEDIARY BANNER 2: PRODUCT LAUNCH & GROWTH */}
+      <section className="section" style={{ padding: '2rem 0' }}>
+        <div className="container">
+          <div 
+            style={{
+              position: 'relative',
+              borderRadius: 'var(--radius-lg)',
+              overflow: 'hidden',
+              height: '240px',
+              display: 'flex',
+              alignItems: 'center',
+              padding: '2.5rem',
+              boxShadow: 'var(--shadow-md)'
+            }}
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1200&auto=format&fit=crop" 
+              alt="Strategic Product Launch" 
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(20,20,22,0.85) 0%, rgba(20,20,22,0.35) 100%)' }} />
+            <div style={{ position: 'relative', zIndex: 2, color: '#FFFFFF', maxWidth: '640px' }}>
+              <span className="tag" style={{ backgroundColor: 'var(--accent)', color: '#FFFFFF', marginBottom: '0.8rem' }}>
+                <Rocket size={13} style={{ marginRight: '0.3rem' }} />
+                {t('Швидкий запуск', 'Fast Track Launch')}
+              </span>
+              <h3 style={{ color: '#FFFFFF', fontSize: '1.5rem', marginBottom: '0.6rem' }}>
+                {t('Готові рішення для розширення ринку та запуску нових напрямів', 'Turnkey expansion roadmaps for new products & verticals')}
+              </h3>
+              <p style={{ color: '#E0DFE3', fontSize: '0.92rem' }}>
+                {t('Формуємо маркетинговий план, що забезпечує результат з першого місяця.', 'Formulating marketing strategies engineered for quick wins.')}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS - LEFT ALIGNED HEADER & 4-CARD BALANCED GRID */}
       <section className="section">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem auto' }}>
+          <div style={{ textAlign: 'left', maxWidth: '720px', marginBottom: '2.5rem' }}>
+            <span className="tag tag-accent" style={{ marginBottom: '0.8rem' }}>{t('Етапи роботи', 'Work Steps')}</span>
             <h2>{t('Процес роботи з маркетингу', 'Marketing Workflow Process')}</h2>
           </div>
-          <div className="mobile-carousel">
+          <div className="grid-2-col mobile-carousel">
             {[
               { step: '01', titleUa: 'Аналіз & Аудит', titleEn: 'Audit & Analysis', descUa: 'Занурення в бізнес, аналіз конкурентів та аудиторії.', descEn: 'Deep dive into business, competitors and target audience.' },
               { step: '02', titleUa: 'Стратегія & Гіпотези', titleEn: 'Strategy & Hypotheses', descUa: 'Побудова покрокової карти дій та пріоритетів.', descEn: 'Formulating step-by-step roadmap and priorities.' },
@@ -133,10 +211,10 @@ export const MarketingPage: React.FC<MarketingPageProps> = ({ onOpenContact }) =
         </div>
       </section>
 
-      {/* FAQ SECTION */}
+      {/* FAQ SECTION - LEFT ALIGNED HEADER */}
       <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderTop: '1px solid var(--border-color)' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3rem auto' }}>
+          <div style={{ textAlign: 'left', maxWidth: '720px', marginBottom: '2.5rem' }}>
             <span className="tag tag-accent" style={{ marginBottom: '0.8rem' }}>FAQ</span>
             <h2>{t('Часті запитання про маркетинг', 'Marketing FAQ')}</h2>
           </div>
@@ -144,20 +222,12 @@ export const MarketingPage: React.FC<MarketingPageProps> = ({ onOpenContact }) =
         </div>
       </section>
 
-      {/* SEO BLOCK RIGHT BEFORE FOOTER */}
+      {/* SEO BLOCK RIGHT BEFORE FOOTER (FULL 5000+ CHARACTERS) */}
       <SeoBlock
-        titleUa="Послуги маркетингу та стратегічного аналізу від Pozdni Team Agency"
-        titleEn="Strategic Marketing & Analytics Services by Pozdni Team Agency"
-        paragraphsUa={[
-          "Системний маркетинг — це фундамент стабільного зростання будь-якого бізнесу. Команда Pozdni Team Agency допомагає відійти від інтуїтивних хаотичних дій до вимірюваної маркетингової стратегії з чіткими KPI.",
-          "Ми проводимо глибокі дослідження ринку, аудиторії та конкурентів, формуємо ціннісну пропозицію (УТП), будуємо воронки залучення та налаштовуємо наскрізну аналітику.",
-          "Незалежно від того, чи потрібен вам разовий маркетинговий аудит перед запуском нового продукту, чи повноцінне стратегічне супроводження — ми гарантуємо прозорий підхід та фокус на вимірній окупності."
-        ]}
-        paragraphsEn={[
-          "Systemic marketing forms the backbone of predictable business growth. Pozdni Team Agency guides companies from fragmented marketing actions to a structured strategy with clear performance metrics.",
-          "We execute deep market, competitor, and audience research, craft unique value propositions (UVP), construct multi-stage sales funnels, and implement end-to-end performance analytics.",
-          "Whether you require a one-off pre-launch audit or long-term strategic growth execution, we deliver transparent workflows focused on verifiable ROI."
-        ]}
+        titleUa={SEO_DATA.marketing.seoBlockTitleUa}
+        titleEn={SEO_DATA.marketing.seoBlockTitleEn}
+        paragraphsUa={SEO_DATA.marketing.paragraphsUa}
+        paragraphsEn={SEO_DATA.marketing.paragraphsEn}
       />
     </div>
   );

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { PromoBanner } from './components/PromoBanner';
 import { ContactModal } from './components/ContactModal';
+import { SEO_DATA } from './config/seoConfig';
 
 import { HomePage } from './pages/HomePage';
 import { MarketingPage } from './pages/MarketingPage';
@@ -13,10 +14,28 @@ import { ComplexServicesPage } from './pages/ComplexServicesPage';
 import { PortfolioPage } from './pages/PortfolioPage';
 import { ContactsPage } from './pages/ContactsPage';
 
-export function App() {
+function MainApp() {
+  const { lang } = useLanguage();
   const [currentTab, setCurrentTab] = useState<string>('home');
   const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
   const [modalInitialService, setModalInitialService] = useState<string>('all');
+
+  // Dynamic SEO Page Titles & Meta Descriptions
+  useEffect(() => {
+    const seo = SEO_DATA[currentTab] || SEO_DATA['home'];
+    const title = lang === 'ua' ? seo.titleUa : seo.titleEn;
+    const description = lang === 'ua' ? seo.metaDescriptionUa : seo.metaDescriptionEn;
+
+    document.title = title;
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', description);
+  }, [currentTab, lang]);
 
   // Sync state with URL Hash for shareable links
   useEffect(() => {
@@ -105,30 +124,36 @@ export function App() {
   };
 
   return (
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}>
+      <PromoBanner onOpenContact={() => handleOpenContact('Промо-акція')} />
+      <Header 
+        currentTab={currentTab} 
+        onNavigate={handleNavigate} 
+        onOpenContact={() => handleOpenContact()} 
+      />
+
+      <main style={{ flexGrow: 1, width: '100%', overflowX: 'hidden' }}>
+        {renderCurrentPage()}
+      </main>
+
+      <Footer 
+        onNavigate={handleNavigate} 
+        onOpenContact={() => handleOpenContact()} 
+      />
+
+      <ContactModal 
+        isOpen={contactModalOpen} 
+        onClose={() => setContactModalOpen(false)} 
+        initialService={modalInitialService} 
+      />
+    </div>
+  );
+}
+
+export function App() {
+  return (
     <LanguageProvider>
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}>
-        <PromoBanner onOpenContact={() => handleOpenContact('Промо-акція')} />
-        <Header 
-          currentTab={currentTab} 
-          onNavigate={handleNavigate} 
-          onOpenContact={() => handleOpenContact()} 
-        />
-
-        <main style={{ flexGrow: 1, width: '100%', overflowX: 'hidden' }}>
-          {renderCurrentPage()}
-        </main>
-
-        <Footer 
-          onNavigate={handleNavigate} 
-          onOpenContact={() => handleOpenContact()} 
-        />
-
-        <ContactModal 
-          isOpen={contactModalOpen} 
-          onClose={() => setContactModalOpen(false)} 
-          initialService={modalInitialService} 
-        />
-      </div>
+      <MainApp />
     </LanguageProvider>
   );
 }

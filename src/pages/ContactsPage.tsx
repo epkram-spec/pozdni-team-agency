@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { AGENCY_CONFIG } from '../config/agencyConfig';
 import { SeoBlock } from '../components/SeoBlock';
+import { SEO_DATA } from '../config/seoConfig';
 import { Phone, Mail, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 
 export const ContactsPage: React.FC = () => {
@@ -48,7 +49,7 @@ export const ContactsPage: React.FC = () => {
       {/* HERO */}
       <section className="section" style={{ backgroundColor: 'var(--bg-surface)', borderBottom: '1px solid var(--border-color)', paddingTop: '3.5rem', paddingBottom: '4rem' }}>
         <div className="container">
-          <div style={{ maxWidth: '840px' }}>
+          <div style={{ maxWidth: '840px', textAlign: 'left' }}>
             <span className="tag tag-accent" style={{ marginBottom: '1.2rem' }}>
               <Send size={14} style={{ marginRight: '0.4rem' }} />
               {t('Контакти', 'Contacts')}
@@ -72,7 +73,7 @@ export const ContactsPage: React.FC = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem' }}>
             {/* Direct Contacts Column */}
             <div>
-              <h2 style={{ fontSize: '1.75rem', marginBottom: '1.8rem' }}>
+              <h2 style={{ fontSize: '1.75rem', marginBottom: '1.8rem', textAlign: 'left' }}>
                 {t('Прямий зв’язок', 'Direct Channels')}
               </h2>
 
@@ -126,7 +127,7 @@ export const ContactsPage: React.FC = () => {
 
             {/* Form Column */}
             <div className="card" style={{ padding: '2.2rem' }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', textAlign: 'left' }}>
                 {t('Надіслати повідомлення', 'Send Message')}
               </h3>
 
@@ -233,20 +234,12 @@ export const ContactsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* SEO BLOCK RIGHT BEFORE FOOTER */}
+      {/* SEO BLOCK RIGHT BEFORE FOOTER (FULL 5000+ CHARACTERS) */}
       <SeoBlock
-        titleUa="Контакти маркетингової агенції Pozdni Team — Замовити послуги маркетингу, дизайну та SMM"
-        titleEn="Pozdni Team Agency Contacts — Order Marketing, Design & SMM Services"
-        paragraphsUa={[
-          "Бажаєте обговорити новий проєкт чи отримати консультацію з розвитку вашого бренду? Зв'яжіться з командою Pozdni Team Agency зручним способом: по телефону, електронною поштою або через Telegram.",
-          "Ми працюємо з компаніями по всій Україні та за кордоном, надаючи повний комплекс послуг зі стратегічного маркетингу, графічного дизайну та SMM.",
-          "Заповнюйте форму зворотного зв'язку або звертайтеся безпосередньо — ми запропонуємо оптимальний формат співпраці для досягнення цілей вашого бізнесу."
-        ]}
-        paragraphsEn={[
-          "Ready to discuss your next project or receive strategic brand expansion advice? Connect with Pozdni Team Agency via phone, email, or direct Telegram messenger.",
-          "We partner with businesses across Ukraine and internationally, executing end-to-end campaigns across marketing strategy, graphic design, and social media operations.",
-          "Fill out the inquiry form or reach out directly — we will formulate an optimal cooperation package tailored to your commercial milestones."
-        ]}
+        titleUa={SEO_DATA.contacts.seoBlockTitleUa}
+        titleEn={SEO_DATA.contacts.seoBlockTitleEn}
+        paragraphsUa={SEO_DATA.contacts.paragraphsUa}
+        paragraphsEn={SEO_DATA.contacts.paragraphsEn}
       />
     </div>
   );

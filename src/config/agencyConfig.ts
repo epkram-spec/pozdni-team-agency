@@ -56,20 +56,14 @@ export const AGENCY_CONFIG = {
     {
       titleUa: "Окрема послуга",
       titleEn: "Single Service",
-      descUa: "Точкове рішення вашого завдання: розробка логотипа, разовий аудит або створення контент-плану.",
+      descUa: "Точкове рішення конкретного завдання: розробка логотипа, разовий аудит або створення контент-плану.",
       descEn: "Targeted solution for your task: logo design, one-time audit, or content calendar."
     },
     {
       titleUa: "Проєктна робота",
       titleEn: "Project-Based Work",
-      descUa: "Розробка комплексного проєкту від ідеї до реалізації у фіксовані терміни (наприклад, упаковка нового бренду).",
-      descEn: "Comprehensive project from concept to launch within a fixed deadline."
-    },
-    {
-      titleUa: "Запуск або кампанія",
-      titleEn: "Launch or Campaign",
-      descUa: "Підготовка та проведення промо-кампанії, запуску нового продукту або сезонної акції.",
-      descEn: "Preparing and executing promo campaigns, product launches, or seasonal sales."
+      descUa: "Розробка комплексного проєкту від ідеї до повного запуску у фіксовані терміни з прогнозованим бюджетом.",
+      descEn: "Comprehensive project execution from concept to launch within a fixed deadline."
     },
     {
       titleUa: "Регулярний супровід",
@@ -78,54 +72,48 @@ export const AGENCY_CONFIG = {
       descEn: "Monthly continuous work on content, visual design, and marketing collateral."
     },
     {
-      titleUa: "Зовнішня маркетингова команда",
-      titleEn: "External Marketing Team",
-      descUa: "Повна заміна внутрішнього відділу маркетингу: троє фахівців за ціною одного штатника.",
+      titleUa: "Зовнішня команда",
+      titleEn: "External Team",
+      descUa: "Повна заміна внутрішнього відділу маркетингу: маркетолог, дизайнер та SMM-фахівець за ціною одного штатника.",
       descEn: "Full replacement of an in-house marketing department: 3 specialists working in synergy."
     }
   ],
 
   targetAudiences: [
     {
-      titleUa: "HoReCa та гастрономічні проєкти",
+      titleUa: "HoReCa та гастрономія",
       titleEn: "HoReCa & Gastronomy",
       descUa: "Ресторани, кав'ярні, пекарні, готелі та темні кухні, де важлива атмосфера й візуальний апетит.",
       descEn: "Restaurants, cafes, bakeries, hotels, and dark kitchens where visual appetite is key."
     },
     {
-      titleUa: "Ювелірні бренди й магазини",
-      titleEn: "Jewelry Brands & Stores",
+      titleUa: "Ювелірні бренди й преміум",
+      titleEn: "Jewelry & Luxury",
       descUa: "Бренди прикрас, які потребують естетичної айдентики, преміального контенту та концептуального SMM.",
       descEn: "Jewelry brands requiring aesthetic identity, premium content, and conceptual SMM."
     },
     {
-      titleUa: "Локальний бізнес",
-      titleEn: "Local Businesses",
-      descUa: "Міські сервіси, студії, майстерні та магазини, що прагнуть стати лідерами у своєму районі або місті.",
-      descEn: "City services, studios, workshops, and retail stores striving to lead locally."
-    },
-    {
-      titleUa: "Beauty та Retail",
-      titleEn: "Beauty & Retail",
+      titleUa: "Beauty, Fashion та Retail",
+      titleEn: "Beauty, Fashion & Retail",
       descUa: "Салони краси, косметичні марки, шоуруми одягу та аксесуарів із високими вимогами до візуалу.",
       descEn: "Beauty salons, cosmetics brands, and clothing showrooms with high visual standards."
     },
     {
-      titleUa: "Виробники й дистриб’ютори",
-      titleEn: "Manufacturers & Distributors",
+      titleUa: "Виробники й крафтові бренди",
+      titleEn: "Manufacturers & Craft Brands",
       descUa: "Компанії, яким потрібне зрозуміле упакування лінійки товарів, каталоги та B2B-презентації.",
       descEn: "Companies needing clear product line packaging, catalogs, and B2B decks."
     },
     {
-      titleUa: "B2B-компанії",
-      titleEn: "B2B Companies",
+      titleUa: "B2B та сервісні компанії",
+      titleEn: "B2B & Service Companies",
       descUa: "Сервісні та консалтингові компанії, які шукають чітке системне позиціонування та довіру.",
       descEn: "Service & consulting firms seeking clear systemic positioning and market trust."
     },
     {
       titleUa: "Експерти та персональні бренди",
       titleEn: "Experts & Personal Brands",
-      descUa: "Спеціалісти, фаундер-бренди та консультанти, які пакують свої знання та досвід.",
+      descUa: "Спеціалісти, фаундер-бренди та консультанти, які пакують свої знання та досвід у системний продукт.",
       descEn: "Specialists, founders, and consultants packaging their personal expertise."
     }
   ],
