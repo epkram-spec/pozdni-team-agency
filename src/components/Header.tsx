@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { AGENCY_CONFIG } from '../config/agencyConfig';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 interface HeaderProps {
@@ -38,7 +37,8 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onNavigate, onOpenCo
           onClick={(e) => { e.preventDefault(); handleNavClick('home'); }} 
           className="logo"
         >
-          {AGENCY_CONFIG.agencyName}<span className="logo-dot">.</span>
+          <span style={{ fontWeight: 900 }}>POZDNI TEAM</span>
+          <span className="logo-dot">.</span>
         </a>
 
         {/* Desktop Navigation */}
