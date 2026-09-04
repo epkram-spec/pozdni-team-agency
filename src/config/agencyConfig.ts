@@ -1,4 +1,7 @@
 import { TeamMember, PortfolioItem, PromoBannerConfig } from '../types';
+import marketerPhoto from '../assets/team/marketer.jpg';
+import designerPhoto from '../assets/team/designer.jpg';
+import smmPhoto from '../assets/team/smm.jpg';
 
 export const AGENCY_CONFIG = {
   agencyName: "Pozdni Team Agency",
@@ -31,7 +34,7 @@ export const AGENCY_CONFIG = {
       name: "Євген",
       role: "Старший маркетолог / Senior Marketer",
       description: "Відповідає за бренд-стратегію, воронки продажів, аналітику та цільове позиціонування бізнесу. Перетворює хаотичні маркетингові дії у вимірювану систему.",
-      photoUrl: "/team/marketer.jpg",
+      photoUrl: marketerPhoto,
       skills: ["Маркетингова стратегія", "Аналітика & KPI", "Воронки продажів", "Позиціонування"]
     },
     {
@@ -39,7 +42,7 @@ export const AGENCY_CONFIG = {
       name: "Тетяна",
       role: "Графічна дизайнерка / Graphic Designer",
       description: "Створює візуальну ідентичність бренду: айдентику, логотипи, упакування, брендбуки та рекламні візуали. Формує стиль, який запам'ятовується та продає.",
-      photoUrl: "/team/designer.jpg",
+      photoUrl: designerPhoto,
       skills: ["Айдентика & Брендбук", "Графічний дизайн", "Упаковка", "SMM-візуали"]
     },
     {
@@ -47,7 +50,7 @@ export const AGENCY_CONFIG = {
       name: "Оля",
       role: "SMM-маркетологиня / SMM Marketer",
       description: "Розробляє контент-стратегії, веде соціальні мережі, планує Reels/Shorts та працює з ком'юніті. Забезпечує регулярну системну присутність бренду в медіапросторі.",
-      photoUrl: "/team/smm.jpg",
+      photoUrl: smmPhoto,
       skills: ["SMM-стратегія", "Контент-планування", "Reels / Shorts", "Ком'юніті-менеджмент"]
     }
   ] as TeamMember[],
