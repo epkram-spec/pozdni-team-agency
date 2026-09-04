@@ -21,45 +21,58 @@ export const PromoBanner: React.FC<PromoBannerProps> = ({ onOpenContact }) => {
       style={{
         backgroundColor: 'var(--accent)',
         color: '#FFFFFF',
-        padding: '0.65rem 1rem',
-        fontSize: '0.88rem',
+        padding: '0.45rem 0.75rem',
+        fontSize: '0.82rem',
         position: 'relative',
-        zIndex: 90
+        zIndex: 90,
+        width: '100%',
+        boxSizing: 'border-box',
+        overflow: 'hidden'
       }}
     >
       <div 
-        className="container promo-banner-content" 
+        className="container promo-banner-container" 
         style={{ 
           display: 'flex', 
           alignItems: 'center', 
           justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: '0.6rem 1rem'
+          gap: '0.5rem 0.8rem',
+          maxWidth: 'var(--container-max)',
+          margin: '0 auto'
         }}
       >
-        <div className="promo-banner-text" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', flex: 1, minWidth: 0 }}>
           <span 
             style={{ 
               backgroundColor: 'rgba(255, 255, 255, 0.25)', 
-              padding: '0.2rem 0.6rem', 
+              padding: '0.15rem 0.5rem', 
               borderRadius: 'var(--radius-full)', 
-              fontSize: '0.72rem', 
+              fontSize: '0.7rem', 
               fontWeight: 800,
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.3rem',
-              whiteSpace: 'nowrap'
+              gap: '0.25rem',
+              whiteSpace: 'nowrap',
+              flexShrink: 0
             }}
           >
-            <Sparkles size={13} />
+            <Sparkles size={12} />
             {t(AGENCY_CONFIG.promoBanner.badgeUa || '', AGENCY_CONFIG.promoBanner.badgeEn || '')}
           </span>
-          <span style={{ fontWeight: 500, fontSize: '0.86rem', lineHeight: '1.3' }}>
+          <span 
+            style={{ 
+              fontWeight: 500, 
+              fontSize: '0.8rem', 
+              lineHeight: '1.25',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
+            }}
+          >
             {t(AGENCY_CONFIG.promoBanner.textUa, AGENCY_CONFIG.promoBanner.textEn)}
           </span>
         </div>
 
-        <div className="promo-banner-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginLeft: 'auto' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
           <button 
             onClick={onOpenContact}
             style={{
@@ -67,20 +80,21 @@ export const PromoBanner: React.FC<PromoBannerProps> = ({ onOpenContact }) => {
               color: 'var(--accent)',
               border: 'none',
               borderRadius: 'var(--radius-full)',
-              padding: '0.35rem 0.85rem',
+              padding: '0.25rem 0.7rem',
               fontWeight: 700,
-              fontSize: '0.8rem',
+              fontSize: '0.75rem',
               cursor: 'pointer',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.35rem',
+              gap: '0.3rem',
               whiteSpace: 'nowrap',
               boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
             }}
           >
             <span>{t(AGENCY_CONFIG.promoBanner.ctaTextUa, AGENCY_CONFIG.promoBanner.ctaTextEn)}</span>
-            <ArrowRight size={13} />
+            <ArrowRight size={12} />
           </button>
+
           <button
             onClick={() => setVisible(false)}
             style={{
@@ -90,11 +104,12 @@ export const PromoBanner: React.FC<PromoBannerProps> = ({ onOpenContact }) => {
               cursor: 'pointer',
               padding: '0.2rem',
               display: 'flex',
-              alignItems: 'center'
+              alignItems: 'center',
+              justifyContent: 'center'
             }}
             aria-label="Hide promo banner"
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
       </div>

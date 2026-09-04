@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -17,6 +17,63 @@ export function App() {
   const [currentTab, setCurrentTab] = useState<string>('home');
   const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
   const [modalInitialService, setModalInitialService] = useState<string>('all');
+
+  // Sync state with URL Hash for shareable links
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '').trim();
+      
+      if (!hash) {
+        setCurrentTab('home');
+        return;
+      }
+
+      if (hash === 'contact' || hash === 'contact-modal') {
+        setModalInitialService('all');
+        setContactModalOpen(true);
+        return;
+      }
+
+      if (['home', 'marketing', 'design', 'smm', 'complex', 'portfolio', 'contacts'].includes(hash)) {
+        setCurrentTab(hash);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      // Handle service deep linking like #service-c1, #service-m3
+      if (hash.startsWith('service-')) {
+        const serviceId = hash.replace('service-', '');
+        let targetTab = 'home';
+        if (serviceId.startsWith('c')) targetTab = 'complex';
+        else if (serviceId.startsWith('m')) targetTab = 'marketing';
+        else if (serviceId.startsWith('d')) targetTab = 'design';
+        else if (serviceId.startsWith('s')) targetTab = 'smm';
+
+        setCurrentTab(targetTab);
+
+        setTimeout(() => {
+          const elem = document.getElementById(`service-${serviceId}`);
+          if (elem) {
+            elem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            elem.style.boxShadow = '0 0 0 3px var(--accent)';
+            setTimeout(() => {
+              elem.style.boxShadow = '';
+            }, 3000);
+          }
+        }, 300);
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleNavigate = (tab: string) => {
+    setCurrentTab(tab);
+    window.location.hash = tab === 'home' ? '' : `#${tab}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleOpenContact = (serviceName?: string) => {
     if (serviceName) {
@@ -43,26 +100,26 @@ export function App() {
         return <ContactsPage />;
       case 'home':
       default:
-        return <HomePage onNavigate={setCurrentTab} onOpenContact={handleOpenContact} />;
+        return <HomePage onNavigate={handleNavigate} onOpenContact={handleOpenContact} />;
     }
   };
 
   return (
     <LanguageProvider>
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}>
         <PromoBanner onOpenContact={() => handleOpenContact('Промо-акція')} />
         <Header 
           currentTab={currentTab} 
-          onNavigate={setCurrentTab} 
+          onNavigate={handleNavigate} 
           onOpenContact={() => handleOpenContact()} 
         />
 
-        <main style={{ flexGrow: 1 }}>
+        <main style={{ flexGrow: 1, width: '100%', overflowX: 'hidden' }}>
           {renderCurrentPage()}
         </main>
 
         <Footer 
-          onNavigate={setCurrentTab} 
+          onNavigate={handleNavigate} 
           onOpenContact={() => handleOpenContact()} 
         />
 
