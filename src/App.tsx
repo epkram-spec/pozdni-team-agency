@@ -124,7 +124,7 @@ function MainApp() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <PromoBanner onOpenContact={() => handleOpenContact('Промо-акція')} />
       <Header 
         currentTab={currentTab} 
@@ -132,7 +132,7 @@ function MainApp() {
         onOpenContact={() => handleOpenContact()} 
       />
 
-      <main style={{ flexGrow: 1, width: '100%', overflowX: 'hidden' }}>
+      <main style={{ flexGrow: 1, width: '100%' }}>
         {renderCurrentPage()}
       </main>
 
