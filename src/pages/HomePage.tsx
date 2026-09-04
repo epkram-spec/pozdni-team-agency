@@ -484,7 +484,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
             <h2>{t('Часті запитання клієнтів', 'Frequently Asked Questions')}</h2>
           </div>
 
-          <FAQAccordion items={AGENCY_CONFIG.faq} />
+          <FAQAccordion items={AGENCY_CONFIG.faqHome} />
         </div>
       </section>
 

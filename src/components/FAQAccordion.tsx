@@ -22,7 +22,7 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({ items }) => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '800px', margin: '0 auto' }}>
+    <div className="grid-2-col" style={{ maxWidth: '1200px', margin: '0 auto', alignItems: 'start' }}>
       {items.map((item, idx) => {
         const isOpen = openIndex === idx;
         return (
@@ -30,17 +30,18 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({ items }) => {
             key={idx}
             style={{
               backgroundColor: 'var(--bg-surface)',
-              border: '1px solid var(--border-color)',
+              border: isOpen ? '1px solid var(--accent)' : '1px solid var(--border-color)',
               borderRadius: 'var(--radius-md)',
               overflow: 'hidden',
-              transition: 'all 0.2s ease'
+              transition: 'all 0.2s ease',
+              boxShadow: isOpen ? '0 4px 20px rgba(0,0,0,0.04)' : 'none'
             }}
           >
             <button
               onClick={() => toggle(idx)}
               style={{
                 width: '100%',
-                padding: '1.5rem',
+                padding: '1.25rem 1.5rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
@@ -49,19 +50,20 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({ items }) => {
                 border: 'none',
                 cursor: 'pointer',
                 textAlign: 'left',
-                fontFamily: 'var(--font-display)',
-                fontSize: '1.15rem',
+                fontFamily: 'var(--font-body)',
+                fontSize: '1.05rem',
                 fontWeight: 700,
                 color: isOpen ? 'var(--accent)' : 'var(--text-primary)'
               }}
             >
-              <span>{t(item.questionUa, item.questionEn)}</span>
+              <span style={{ lineHeight: '1.4' }}>{t(item.questionUa, item.questionEn)}</span>
               <ChevronDown 
-                size={20} 
+                size={18} 
                 style={{ 
                   transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                   transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                  flexShrink: 0
+                  flexShrink: 0,
+                  color: isOpen ? 'var(--accent)' : 'var(--text-secondary)'
                 }} 
               />
             </button>
@@ -69,10 +71,10 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({ items }) => {
             {isOpen && (
               <div 
                 style={{
-                  padding: '0 1.5rem 1.5rem 1.5rem',
+                  padding: '0 1.5rem 1.25rem 1.5rem',
                   color: 'var(--text-secondary)',
-                  fontSize: '1rem',
-                  lineHeight: '1.65',
+                  fontSize: '0.92rem',
+                  lineHeight: '1.6',
                   borderTop: '1px solid rgba(24, 24, 26, 0.05)'
                 }}
               >

@@ -218,7 +218,7 @@ export const SmmPage: React.FC<SmmPageProps> = ({ onOpenContact }) => {
             <span className="tag tag-accent" style={{ marginBottom: '0.8rem' }}>FAQ</span>
             <h2>{t('Часті запитання про SMM', 'SMM FAQ')}</h2>
           </div>
-          <FAQAccordion items={AGENCY_CONFIG.faq.slice(0, 4)} />
+          <FAQAccordion items={AGENCY_CONFIG.faqSmm} />
         </div>
       </section>
 

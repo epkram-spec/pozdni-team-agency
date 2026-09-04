@@ -184,48 +184,204 @@ export const AGENCY_CONFIG = {
     }
   ] as PortfolioItem[],
 
-  faq: [
+  // Shared common questions across services
+  faqHome: [
     {
-      questionUa: "Чи можна замовити одну окрему послугу?",
-      questionEn: "Can I order a single standalone service?",
-      answerUa: "Так, звісно! Ви можете звернутися до нас як за разовою послугою (наприклад, розробка логотипа або аудит маркетингу), так і за комплексним супроводом.",
-      answerEn: "Yes, absolutely! You can contact us for a single service (e.g. logo design or marketing audit) as well as full complex retainer support."
+      questionUa: "Чи можна замовити окрему послугу чи обов'язково комплекс?",
+      questionEn: "Can I order a single service or is integrated full-service mandatory?",
+      answerUa: "Ви можете звернутися до нас як за разовою послугою (наприклад, розробка брендбуку чи аудит маркетингу), так і за повноцінним супроводом.",
+      answerEn: "You can reach out for a single service (e.g. brandbook or marketing audit) as well as full complex agency support."
     },
     {
-      questionUa: "Чи працюєте ви з малим бізнесом?",
-      questionEn: "Do you work with small businesses?",
-      answerUa: "Так. Ми дуже цінуємо роботу з малим і локальним бізнесом, адже тут швидко видно реальний результат дій команди.",
-      answerEn: "Yes. We highly value working with small and local businesses where the real impact of our team's work is quickly visible."
+      questionUa: "Як формується вартість послуг та чи є приховані платежі?",
+      questionEn: "How is service pricing formed and are there hidden fees?",
+      answerUa: "Вартість розраховується фіксовано за узгодженим кошторисом перед стартом проєкту. Жодних прихованих комісій — ви завжди знаєте фінальний бюджет.",
+      answerEn: "Pricing is fixed based on an agreed estimate before project launch. No hidden fees — you always know the exact budget."
     },
     {
-      questionUa: "Як формується вартість?",
-      questionEn: "How is pricing formed?",
-      answerUa: "Вартість розраховується індивідуально залежно від обсягу завдань, складності та термінів. Ми завжди пропонуємо прозору кошторисну пропозицію перед стартом.",
-      answerEn: "Pricing is calculated individually based on task scope, complexity, and timelines. We always provide a transparent quote before launch."
+      questionUa: "Як відбувається запуск та перші кроки після звернення?",
+      questionEn: "How does project onboarding work after contacting us?",
+      answerUa: "Все починається з короткого брифу чи дзвінка, де ми з'ясовуємо ваші завдання. Далі ми готуємо прозорий план дій та стартуємо роботу.",
+      answerEn: "It begins with a brief intake call to align on goals, followed by a transparent action plan and quick project onboarding."
     },
     {
-      questionUa: "Чи можете ви повністю вести маркетинг компанії?",
-      questionEn: "Can you fully manage company marketing?",
-      answerUa: "Так! Формат «Зовнішня маркетингова команда» дозволяє нам закривати всі питання стратегії, дизайну та SMM у синергії 3 спеціалістів.",
-      answerEn: "Yes! Our 'External Marketing Team' format allows us to handle strategy, design, and SMM synergistically with 3 dedicated specialists."
+      questionUa: "З якими нішами бізнесу ви працюєте найчастіше?",
+      questionEn: "Which business niches do you work with most frequently?",
+      answerUa: "Ми маємо експертизу в HoReCa (ресторани, кафе, готелі) та ювелірній галузі, але також будуємо системний маркетинг для B2C, рітейлу та локального бізнесу.",
+      answerEn: "We hold deep expertise in HoReCa (gastronomy & hospitality) and jewelry, while scaling systems for B2C, retail, and local services."
     },
     {
-      questionUa: "Як починається робота?",
-      questionEn: "How does the engagement start?",
-      answerUa: "Все починається з короткого дзвінка або переписки, де ми з'ясовуємо ваші завдання, після чого ми готуємо пропозицію та план кроків.",
-      answerEn: "It all starts with a brief intro call or chat to align on your goals, after which we prepare a custom proposal and action plan."
+      questionUa: "Хто саме буде працювати над моїм проєктом?",
+      questionEn: "Who specifically will be working on my project?",
+      answerUa: "Вашим проєктом займається згуртована команда з 3 експертів: старший маркетолог, графічна дизайнерка та SMM-маркетолог під керівництвом PM.",
+      answerEn: "Your project is assigned to a dedicated team of 3 specialists: senior marketer, graphic designer, and SMM marketer."
     },
     {
-      questionUa: "Чи працюєте ви дистанційно?",
-      questionEn: "Do you work remotely?",
-      answerUa: "Так, ми ефективно співпрацюємо дистанційно з клієнтами по всій Україні та за її межами через Zoom, Telegram та Notion/Figma.",
-      answerEn: "Yes, we collaborate seamlessly remote with clients across Ukraine and internationally via Zoom, Telegram, and Notion/Figma."
-    },
-    {
-      questionUa: "Чи можна залучити додаткових спеціалістів?",
-      questionEn: "Can additional specialists be involved?",
-      answerUa: "Так! Під спеціалізовані задачі (таргетована реклама, складне веб-програмування, відеозйомка) ми залучаємо перевірених партнерів.",
-      answerEn: "Yes! For specialized tasks (media buying, web dev, video production) we pull in vetted partner specialists."
+      questionUa: "Чи працюєте ви дистанційно по Україні та за кордоном?",
+      questionEn: "Do you work remotely across Ukraine and internationally?",
+      answerUa: "Так, 100% наших процесів налаштовано для віддаленої співпраці. Ми системно ведемо проєкти через Telegram, Zoom, Notion та Figma.",
+      answerEn: "Yes, 100% of our operations are optimized for remote collaboration across Ukraine and globally via Telegram, Zoom, Notion, and Figma."
     }
-  ]
+  ],
+
+  faqMarketing: [
+    {
+      questionUa: "Що саме входить у розробку маркетингової стратегії?",
+      questionEn: "What is included in a marketing strategy development?",
+      answerUa: "Глибинний аудит поточної ситуації, аналіз конкурентів та ЦА, формування UTP/позиціонування, розробка воронок продажів та покроковий медіаплан дій.",
+      answerEn: "In-depth audit, competitor & audience research, UVP positioning, sales funnels architecture, and a step-by-step media execution plan."
+    },
+    {
+      questionUa: "Скільки часу займає розробка повноцінної стратегії?",
+      questionEn: "How long does full marketing strategy development take?",
+      answerUa: "Зазвичай процес розробки стратегії займає від 10 до 15 робочих днів залежно від обсягу бізнесу та складності ніші.",
+      answerEn: "Strategy development typically takes 10 to 15 business days depending on business scope and market complexity."
+    },
+    {
+      questionUa: "Чи допомагаєте ви впроваджувати стратегію після розробки?",
+      questionEn: "Do you help execute the strategy after its completion?",
+      answerUa: "Так! Ми не просто віддаємо документований PDF-план, а супроводжуємо його реалізацію як ваша маркетингова команда.",
+      answerEn: "Yes! We don't just hand over a PDF report, we actively execute and supervise its implementation as your marketing arm."
+    },
+    {
+      questionUa: "Як ви вимірюєте результативність маркетингових дій?",
+      questionEn: "How do you measure marketing performance and results?",
+      answerUa: "Ми орієнтуємося на чіткі бізнес-метрики: вартість залучення клієнта (CAC), коефіцієнт конверсії, ROI та підсумкове зростання виторгу.",
+      answerEn: "We focus on clear performance metrics: customer acquisition cost (CAC), conversion rate, ROI, and overall revenue growth."
+    },
+    {
+      questionUa: "Як формується вартість маркетингових послуг?",
+      questionEn: "How is marketing service pricing structured?",
+      answerUa: "Вартість розраховується фіксовано за узгодженим кошторисом перед стартом проєкту. Ви завжди знаєте точний обсяг та бюджет.",
+      answerEn: "Pricing is calculated on a fixed-rate estimate agreed upon before starting. You always know the precise scope and budget."
+    },
+    {
+      questionUa: "Як почати співпрацю з напряму маркетингу?",
+      questionEn: "How to initiate a marketing engagement with your team?",
+      answerUa: "Надішліть заявку через форму або напишіть у Telegram. Ми проведемо первинну консультацію та підготуємо пропозицію.",
+      answerEn: "Submit an inquiry via our form or text us on Telegram. We'll hold an intro call and build a targeted proposal."
+    }
+  ],
+
+  faqDesign: [
+    {
+      questionUa: "Що входить у розробку фірмового стилю та айдентики?",
+      questionEn: "What is included in brand identity & visual design development?",
+      answerUa: "Логотип, фірмова колірна палітра, шрифтова пара, правила використання стилю, шаблони носіїв (візитки, меню, упаковка, соцмережі) та брендбук.",
+      answerEn: "Logo design, color palette, typography pairing, brand guidelines, collaterals (menus, packaging, social templates), and a brandbook."
+    },
+    {
+      questionUa: "Скільки варіантів логотипа ви надаєте на вибір?",
+      questionEn: "How many logo concepts do you present for selection?",
+      answerUa: "Ми готуємо 3 принципово різні концепції з обґрунтуванням смислів, після чого доопрацьовуємо обраний варіант до ідеалу.",
+      answerEn: "We develop 3 distinct concept directions with strategic rationale, then polish the chosen direction to perfection."
+    },
+    {
+      questionUa: "Чи передаєте ви всі вихідні файли після завершення?",
+      questionEn: "Do you transfer all raw source vector files upon completion?",
+      answerUa: "Так, ви отримуєте повний пакет векторних та растрових вихідників (Figma, AI, EPS, PDF, PNG, SVG), повністю готових до друку та диджиталу.",
+      answerEn: "Yes, you receive all vector and raster source files (Figma, AI, EPS, PDF, PNG, SVG) ready for print and digital publishing."
+    },
+    {
+      questionUa: "Чи робите ви дизайн упаковки та поліграфії для HoReCa?",
+      questionEn: "Do you design restaurant menus, packaging & print items?",
+      answerUa: "Так! Це наша спеціалізація. Ми робимо додрукарську підготовку меню, упаковки, мерчу та рекламної поліграфії з урахуванням стандартів друку.",
+      answerEn: "Yes! That is our core specialty. We manage prepress for menus, packaging, merch, and print collateral according to specs."
+    },
+    {
+      questionUa: "Як формується вартість дизайн-проєктів?",
+      questionEn: "How is design project pricing calculated?",
+      answerUa: "Вартість розраховується фіксовано залежно від складу носіїв та обсягу елементів айдентики перед стартом розробки.",
+      answerEn: "Pricing is fixed based on the number of deliverables and identity asset complexity before design work begins."
+    },
+    {
+      questionUa: "Скільки ітерацій правок включено у вартість розробки?",
+      questionEn: "How many revision rounds are included in the price?",
+      answerUa: "До складу входить 3 повні ітерації правок для кожної концепції, що гарантує 100% влучання у ваше бачення без переплат.",
+      answerEn: "We include 3 comprehensive revision rounds per stage, guaranteeing 100% alignment with your vision without added costs."
+    }
+  ],
+
+  faqSmm: [
+    {
+      questionUa: "Що входить у щомісячний SMM-супровід під ключ?",
+      questionEn: "What is included in monthly turnkey SMM management?",
+      answerUa: "SMM-стратегія, рубрикатор, контент-планування, виїзна або студійна контент-зйомка, написання постів, монтаж Reels/Shorts, Stories та модерація.",
+      answerEn: "SMM strategy, content calendar, video/photo shoots, copywriting, Reels/Shorts editing, daily Stories, and profile moderation."
+    },
+    {
+      questionUa: "Чи входить фото- та відеозйомка у вартість SMM?",
+      questionEn: "Is photo & video production included in SMM packages?",
+      answerUa: "Так! Ми самостійно організовуємо та проводимо професійні зйомки для створення унікального живого контенту, а не фотостоків.",
+      answerEn: "Yes! We organize and run professional on-site content shoots to create authentic custom brand visuals rather than stock photos."
+    },
+    {
+      questionUa: "Як швидко з'являються перші результати в соцмережах?",
+      questionEn: "How quickly do first social media results appear?",
+      answerUa: "Перші позитивні зрушення у залученні, рості охоплень та якісному візуалі видно вже протягом перших 2-3 тижнів регулярного контенту.",
+      answerEn: "Initial improvements in engagement, reach, and visual presentation become visible within the first 2-3 weeks of launching."
+    },
+    {
+      questionUa: "Хто пише тексти та формує ToV (Tone of Voice) бренду?",
+      questionEn: "Who writes captions and establishes the brand's Tone of Voice?",
+      answerUa: "Наш SMM-копірайтер розробляє унікальний Tone of Voice бренду та створює експертні, продаючі чи розважальні тексти під кожний пост.",
+      answerEn: "Our SMM copywriter defines your custom Tone of Voice and writes engaging, high-converting copy tailored to your audience."
+    },
+    {
+      questionUa: "Як формується вартість щомісячного SMM-супроводу?",
+      questionEn: "How is monthly SMM management pricing structured?",
+      answerUa: "Вартість розраховується фіксованим щомісячним платежем залежно від періодичності публікацій, кількості Reels та зйомок.",
+      answerEn: "Pricing is set as a transparent flat monthly rate based on posting frequency, number of Reels, and shoot volume."
+    },
+    {
+      questionUa: "Що від нас потрібно для запуску SMM-роботи?",
+      questionEn: "What is required from our side to launch SMM work?",
+      answerUa: "Заповнити бриф, надати доступ до акаунту та погодити первинну контент-стратегію. Всю іншу рутину ми беремо на себе.",
+      answerEn: "Fill out a brief, grant profile access, and approve the content strategy. We handle all execution details from there."
+    }
+  ],
+
+  faqComplex: [
+    {
+      questionUa: "Чим формат «Команда 3-х» кращий за фрілансерів чи штатного спеціаліста?",
+      questionEn: "Why is the 'Team of 3' model better than freelancers or in-house hires?",
+      answerUa: "Ви отримуєте одразу 3 готових експертів (маркетолог, дизайнер, SMM), які працюють злагоджено як єдиний організм за ціною одного штатного працівника.",
+      answerEn: "You get 3 synchronized experts (marketer, designer, SMM) working seamlessly together for the cost of a single senior employee."
+    },
+    {
+      questionUa: "Хто координує роботу та з ким комунікувати клієнту?",
+      questionEn: "Who coordinates the team and serves as the single point of contact?",
+      answerUa: "За вашим проєктом закріплено персонального Project Manager / Старшого маркетолога, який веде єдиний чат та контролює всі дедлайни.",
+      answerEn: "A dedicated Project Manager / Senior Marketer leads your single point of contact, ensuring flawless deadlines and updates."
+    },
+    {
+      questionUa: "Чи можна гнучко змінювати задачі в межах місяця?",
+      questionEn: "Can task focus be flexibly shifted within a monthly package?",
+      answerUa: "Так! Якщо у певний місяць потрібен більший акцент на дизайн (наприклад, перед відкриттям), ми перенаправляємо ресурси команди під задачі.",
+      answerEn: "Yes! If a specific month requires extra design focus (e.g. prior to launch), we reallocate team hours to priority needs."
+    },
+    {
+      questionUa: "Яку звітність ви надаєте за результатами співпраці?",
+      questionEn: "What reporting do you provide at the end of each month?",
+      answerUa: "Щомісячний аналітичний звіт з висновками за KPI, оглядом виконаних робіт, динамікою показників та покроковим планом на наступний місяць.",
+      answerEn: "A monthly analytical report detailing key KPI results, accomplished scope, metric trends, and next month's action roadmap."
+    },
+    {
+      questionUa: "Як формується вартість комплексного рішення?",
+      questionEn: "How is pricing structured for complex full-service packages?",
+      answerUa: "Фіксована прозора щомісячна абоплата без прихованих платежів та надбавок. Ви отримуєте повноцінний відділ маркетингу під ключ.",
+      answerEn: "Fixed transparent monthly retainer without unexpected surcharges. You gain a fully functional turnkey marketing department."
+    },
+    {
+      questionUa: "Як виглядає старт роботи з Комплексною командою?",
+      questionEn: "What does onboarding look like with the Integrated Team?",
+      answerUa: "Діагностична сесія -> Аудит -> Стратегічний план на 30 днів -> Запуск перших спільних спринтів у межах 48 годин.",
+      answerEn: "Diagnostic session -> Audit -> 30-day Strategic Roadmap -> Launch of first team sprints within 48 hours."
+    }
+  ],
+
+  // Default fallback for home page
+  faq: [] as Array<{ questionUa: string; questionEn: string; answerUa: string; answerEn: string; }>
 };
+
+AGENCY_CONFIG.faq = AGENCY_CONFIG.faqHome;
