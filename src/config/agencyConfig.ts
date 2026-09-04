@@ -31,7 +31,7 @@ export const AGENCY_CONFIG = {
       name: "Євген",
       role: "Старший маркетолог / Senior Marketer",
       description: "Відповідає за бренд-стратегію, воронки продажів, аналітику та цільове позиціонування бізнесу. Перетворює хаотичні маркетингові дії у вимірювану систему.",
-      photoUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+      photoUrl: "/team/marketer.jpg",
       skills: ["Маркетингова стратегія", "Аналітика & KPI", "Воронки продажів", "Позиціонування"]
     },
     {
@@ -39,7 +39,7 @@ export const AGENCY_CONFIG = {
       name: "Тетяна",
       role: "Графічна дизайнерка / Graphic Designer",
       description: "Створює візуальну ідентичність бренду: айдентику, логотипи, упакування, брендбуки та рекламні візуали. Формує стиль, який запам'ятовується та продає.",
-      photoUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop",
+      photoUrl: "/team/designer.jpg",
       skills: ["Айдентика & Брендбук", "Графічний дизайн", "Упаковка", "SMM-візуали"]
     },
     {
@@ -47,7 +47,7 @@ export const AGENCY_CONFIG = {
       name: "Оля",
       role: "SMM-маркетологиня / SMM Marketer",
       description: "Розробляє контент-стратегії, веде соціальні мережі, планує Reels/Shorts та працює з ком'юніті. Забезпечує регулярну системну присутність бренду в медіапросторі.",
-      photoUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop",
+      photoUrl: "/team/smm.jpg",
       skills: ["SMM-стратегія", "Контент-планування", "Reels / Shorts", "Ком'юніті-менеджмент"]
     }
   ] as TeamMember[],
