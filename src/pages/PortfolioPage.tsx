@@ -76,7 +76,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onOpenContact }) =
           </div>
 
           {/* Cards Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          <div className="grid-3-col mobile-carousel">
             {filteredItems.map((item) => (
               <PortfolioCard key={item.id} item={item} onSelect={() => onOpenContact(item.title)} />
             ))}

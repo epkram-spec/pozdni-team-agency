@@ -369,7 +369,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          <div className="grid-3-col mobile-carousel">
             {AGENCY_CONFIG.team.map((member) => (
               <TeamCard key={member.id} member={member} />
             ))}
@@ -391,7 +391,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenContact })
             </button>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          <div className="grid-3-col mobile-carousel">
             {AGENCY_CONFIG.portfolioItems.slice(0, 6).map((item) => (
               <PortfolioCard key={item.id} item={item} onSelect={() => onOpenContact(item.title)} />
             ))}
